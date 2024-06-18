@@ -228,7 +228,7 @@ cotizarButton.addEventListener('click', function () {
 
 // Asegúrate de tener el ID correcto y no guiones bajos
 volverButton.addEventListener('click', function () {
-    window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    window.location.href = '../HTML/index.html';
 });
 
 // Función para actualizar el almacenamiento local con los valores seleccionados
