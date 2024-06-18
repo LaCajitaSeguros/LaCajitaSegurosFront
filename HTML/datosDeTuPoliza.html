@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizá tu auto</title>
+    <link rel="stylesheet" href="../css/cotizaciones.css">
+    <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="izquierda">
+            <div>
+                <img src="../img/logo.jpg" alt="Logo de La Cajita" width="500" />
+            </div>
+        </div>
+        <div class="derecha">
+            <div>
+                <h1>Ingresá los datos para tu póliza</h1>
+                <h2>
+                    Patente
+                </h2>
+
+                <form>
+                    <input type="text" id="patente" name="patente-vehiculo" placeholder="AB123CD">
+                </form>
+
+                <h2>
+                    Número de chasis
+                </h2>
+
+                <form>
+                    <input type="text" id="chasis" name="chasis-vehiculo" placeholder="Número de chasis">
+                </form>
+
+                <h2>
+                    Número de motor
+                </h2>
+
+                <form>
+                    <input type="text" id="motor" name="motor-vehiculo" placeholder="Número de motor">
+                </form>
+
+                <div class="center">
+                    <div>
+                        <button id="volver-button" class="btn btn-secondary mb-20">Volver</button>
+                        <button id="cotizar-button" class="btn btn-primary mb-20" disabled>Siguiente</button>
+                    </div>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../js/datosDeTuPoliza.js"></script>
+</body>
+</html>
