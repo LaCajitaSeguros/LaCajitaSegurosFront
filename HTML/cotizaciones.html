@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizá tu auto</title>
+    <link rel="stylesheet" href="../css/cotizaciones.css">
+    <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="layout">
+        <div class="izquierda">
+            <div>
+                <img src="../img/logo.jpg" alt="Logo de La Cajita" width="500" />
+            </div>
+        </div>
+        <div class="derecha">
+            <div>
+                <h1>Ingresá tus datos y cotizá tu auto</h1>
+                <h2>
+                    Año del auto
+                </h2>
+
+                <form>
+                    <select id="dropdown-anio" name="dropdown-anio-vehiculo">
+                        <option value="" disabled selected>Buscar año</option>
+                    </select>
+                </form>
+
+                <h2>
+                    Marca del auto
+                </h2>
+
+                <form>
+                    <select id="dropdown-marca" name="dropdown-marca-vehiculo">
+                        <option value="" disabled selected>Buscar marca</option>
+                    </select>
+                </form>
+
+                <h2>
+                    Modelo de auto
+                </h2>
+
+                <form>
+                    <select id="dropdown-modelo" name="dropdown-modelo-vehiculo">
+                        <option value="" disabled selected>Buscar modelo</option>
+                    </select>
+                </form>
+
+                <h2>
+                    Versión
+                </h2>
+
+                <form>
+                    <select id="dropdown-version" name="dropdown-version-vehiculo">
+                        <option value="" disabled selected>Buscar versión</option>
+                    </select>
+                </form>
+
+                <h2>
+                    ¿Dónde vivís?
+                </h2>
+
+                <form>
+                    <select id="dropdown-localidad" name="dropdown-localidad-usuario">
+                        <option value="" disabled selected>Buscar localidad</option>
+                    </select>
+                </form>
+
+                <h2>
+                    Fecha de nacimiento
+                </h2>
+
+                <form>
+                    <input type="date" id="fecha-nacimiento" name="fecha-nacimiento-usuario" required
+                        style="width: 88%;">
+                </form>
+
+                <h2>
+                    GNC
+                </h2>
+
+                <form>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="tiene-gnc" name="tiene-gnc-usuario">
+                        <span class="checkmark"></span>
+                    </label>
+                </form>
+
+                <div class="center">
+                    <div>
+                        <button id="volver-button" class="btn btn-secondary mb-20">Volver</button>
+                        <button id="cotizar-button" class="btn btn-primary mb-20" disabled>Cotizar</button>
+                    </div>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../js/cotizaciones.js"></script>
+</body>
+
+</html>

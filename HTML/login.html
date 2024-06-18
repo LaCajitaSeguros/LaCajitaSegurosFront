@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="layout">
+        <div class="izquierda">
+            <div>
+                <img src="../img/logo.jpg" alt="Logo de La Cajita" width="500" />
+            </div>
+        </div>
+        <div class="derecha">
+            <div>
+                <h1>¡Hola!</h1>
+                <h2>
+                    Ingresá al sitio de autogestión o creá una cuenta y empezá a autogestionarte
+                </h2>
+
+                <!-- Contenedor para el mensaje de éxito -->
+                <div id="successMessage" style="color: green; margin-bottom: 20px;"></div>
+                <div id="reminderMessage" class="reminder-message"></div>
+
+                <input type="email" id="EmailAddress" placeholder="Email" />
+                <span id="emailError" class="error-message">Por favor ingresa tu correo electrónico.</span>
+
+                <!-- Contenedor del campo de contraseña con ícono de ojo -->
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Contraseña" />
+                    <span class="toggle-password" id="togglePassword">&#128065;</span>
+                </div>
+                <span id="passwordError" class="error-message">Por favor ingresa tu contraseña.</span>
+                <span id="invalidPasswordError" class="error-message">Contraseña inválida. Por favor, inténtalo de nuevo.</span>
+
+                <a href="generatePassword.html" class="btn-link block mb-20" id="forgotPasswordLink">¿Olvidaste tu contraseña?</a>
+
+                <div class="center">
+                    <div class="btn btn-primary mb-20" id="loginButton">Iniciar sesión</div>
+                    <div class="loading-spinner" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

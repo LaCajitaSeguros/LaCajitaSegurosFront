@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA CAJITA SEGUROS - Bienvenido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Gris claro */
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            padding: 2rem;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        h1 > span {
+            color: #337ab7;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            padding: 1rem;
+            background-color: #e0e0e0;
+            border-bottom: 1px solid #ddd;
+        }
+        p {
+            font-size: 1rem;
+            color: #333;
+            padding: 1rem;
+            background-color: #fff;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 0.5rem;
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        footer {
+            font-size: 0.8rem;
+            color: #666;
+            padding: 1rem;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Bienvenido,Enzo <span id="userEmail"></span>!</h1>
+    <p>Gracias por elegir LA CAJITA SEGUROS. Desde aquí puedes gestionar tus pólizas, realizar pagos, y mucho más.</p>
+    <h2>Tus pólizas</h2>
+    <ul>
+        <li>Póliza de vida: Número 123456789</li>
+        <li>Póliza de auto: Número 987654321</li>
+        <li>Póliza de hogar: Número 456123789</li>
+    </ul>
+    <h2>Tus últimos pagos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-03-01</td>
+                <td>$1000</td>
+                <td>Pagado</td>
+            </tr>
+            <tr>
+                <td>2023-02-01</td>
+                <td>$1000</td>
+                <td>Pagado</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Tus próximos pagos</h2>
+    <ul>
+        <li>Póliza de vida: 2023-04-01</li>
+        <li>Póliza de auto: 2023-05-01</li>
+        <li>Póliza de hogar: 2023-06-01</li>
+    </ul>
+    <footer>
+        LA CAJITA SEGUROS &copy; 2023. Todos los derechos reservados.
+    </footer>
+    <script>
+        const userEmail = localStorage.getItem('email');
+        if (userEmail) {
+            const userEmailElement = document.getElementById('userEmail');
+            userEmailElement.innerText = userEmail;
+        }
+    </script>
+</body>
+</html>

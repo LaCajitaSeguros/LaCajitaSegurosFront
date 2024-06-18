@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siguiente Página</title>
+    <style>
+        .btn {
+            font-family: "Inter", sans-serif;
+            text-align: center;
+            border-radius: 30px;
+            padding: 15px 40px;
+            font-size: 16px;
+            background-color: #041b2d;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: #041b2d;
+            border: 2px solid #041b2d;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados de la Cotización</h1>
+    <div id="resultados"></div>
+    <div class="btn-container">
+        <button class="btn" onclick="volver()">Volver a Inicio</button>
+    </div>
+
+    <script>
+        function volver() {
+            window.location.href = '../HTML/cotizaciones.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const jsonResponse = JSON.parse(localStorage.getItem('jsonResponse'));
+
+            if (jsonResponse) {
+                console.log('Datos recibidos:', jsonResponse);
+
+                const resultadosDiv = document.getElementById('resultados');
+                const datosAuto = jsonResponse.datosAuto;
+                const coberturas = jsonResponse.cobertura;
+                const ubicacionDatos = jsonResponse.ubicacion;
+
+                const ubicacionInfo = `
+                    <h2>Datos de Ubicación</h2>
+                    <p>Provincia: ${ubicacionDatos.provinciaId}</p>
+                    <p>LocalidadId: ${ubicacionDatos.localidadId}</p>
+                `;
+
+                const autoInfo = `
+                    <h2>Datos del Auto</h2>
+                    <p>Marca: ${datosAuto.marca}</p>
+                    <p>Modelo: ${datosAuto.modelo}</p>
+                    <p>Versión: ${datosAuto.version}</p>
+                `;
+
+                let coberturasInfo = '<h2>Planes de Cobertura</h2>';
+                coberturas.forEach(plan => {
+                    coberturasInfo += `<h3>${plan.nombre} - Prima: ${plan.prima}</h3>`;
+                    coberturasInfo += '<ul>';
+                    plan.coberturas.forEach(cobertura => {
+                        coberturasInfo += `<li>${cobertura.descripcion}</li>`;
+                    });
+                    coberturasInfo += '</ul>';
+                });
+
+                resultadosDiv.innerHTML = ubicacionInfo + autoInfo + coberturasInfo;
+            } else {
+                console.error('No se encontraron datos en localStorage');
+            }
+        });
+    </script>
+</body>
+</html>

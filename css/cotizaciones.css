@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Inter:wght@100..900&display=swap');
+
+.blinker-regular {
+  font-family: "Blinker", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.inter{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+body {
+  font-family: "Blinker", sans-serif;
+  margin: 0;
+  --bg-primary: #041b2d;
+  --bg-secondary: #ffffff;
+  --bg-default: #9E9E9E;
+  --color-primary: #041b2d;
+}
+
+.layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+.izquierda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-primary);
+  }
+
+.derecha{
+    background: var(--bg-secondary);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        color: var(--color-primary);
+        margin: 0;
+    }
+    h2 {
+        width: 300px;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+.block{
+    display: block;
+}
+
+.center{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.btn{
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    border-radius: 30px ;
+    padding: 15px 40px;  /* Aumenta el padding para agrandar los botones */
+    font-size: 16px;     /* Aumenta el tamaño de la fuente */
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.btn-primary{
+    background-color: var(--bg-primary);
+    border: solid 2px var(--bg-primary);
+    color: var(--bg-secondary);
+    &:hover {
+        background-color: var(--bg-secondary);
+        border: 2px solid var(--bg-primary);
+        color: var(--bg-primary);
+      }
+}
+
+.btn-secundary{
+    background-color: var(--bg-default);
+    border: solid 2px var(--bg-default);
+    color: var(--bg-secondary);
+    &:hover {
+        background-color: var(--bg-secondary);
+        border: 2px solid var(--bg-primary);
+        color: var(--bg-primary);
+      }
+}
+
+.subTitle {
+    color: #858585;
+    margin-right: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+}
+
+.btn-link {
+    font-family: "Inter", sans-serif;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+input, select {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+}
+
+#cotizar-button,
+#volver-button {
+    margin: 60px 70px; /* Ajusta el margen según tus necesidades */
+}
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  /* Establece pointer-events a none para deshabilitar los clics en el input,
+     permitiendo que el clic pase a través de él */
+  pointer-events: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+}
+
+/* Habilita los clics en el contenedor para que solo sean efectivos dentro del cuadrado del checkbox */
+.checkbox-container:hover .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #007bff;
+}
+
+.checkbox-container:hover input:checked ~ .checkmark {
+  background-color: #007bff;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #007bff; /* Cambia el color de fondo cuando el checkbox está seleccionado */
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px; /* Ajusta la posición del símbolo de verificación */
+  top: 5px; /* Ajusta la posición del símbolo de verificación */
+  width: 5px; /* Ajusta el tamaño del símbolo de verificación */
+  height: 10px; /* Ajusta el tamaño del símbolo de verificación */
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+#cotizar-button:disabled {
+  background-color: #cccccc;
+    border-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 49%;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Fondo gris claro del overlay */
+  z-index: 999;
+  display: none;
+}

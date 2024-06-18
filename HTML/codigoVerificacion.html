@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codigo de verificación</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
+    <style>
+        .derecha div h1, .derecha div h2 {
+            margin: 0;
+        }
+        .derecha div h2 {
+            font-size: 1rem; /* Ajustar el tamaño de la fuente según sea necesario /
+            color: #666; / Ajustar el color del texto según sea necesario */
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+        .reminder-message {
+            color: red;
+        }
+        .loading-spinner {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="izquierda">
+            <div>
+                <img src="../img/logo.jpg" alt="Logo de La Cajita" width="500" />
+            </div>
+        </div>
+        <div class="derecha">
+            <div>
+                <h1>Ingresa el codigo de verificacion</h1>
+                <h2 class="verification-text">Debe ingresar el codigo de verificacion que se le envio a su correo electronico.</h2>
+
+                <!-- Contenedor para el mensaje de éxito -->
+                <div id="successMessage" style="color: green; margin-bottom: 20px;"></div>
+                <div id="reminderMessage" class="reminder-message"></div>
+
+                <input type="text" id="VerificationCode" placeholder="Ingresar Codigo de verificacion" />
+                <span id="codeError" class="error-message">Por favor ingresa tu código de verificación.</span>
+
+                <div class="center">
+                    <div class="btn btn-primary mb-20" id="verifyButton">Siguiente</div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/codigoVerificacion.js"></script>
+</body>
+</html>
