@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('patente', patenteInput.value);
         localStorage.setItem('codChasis', chasisInput.value);
         localStorage.setItem('codMotor', motorInput.value);
-        window.location.href = '../HTML/siguiente-pagina.html'; // Reemplaza con la URL de la siguiente página
+        window.location.href = '../HTML/verificarEmail.html'; // Reemplaza con la URL de la siguiente página
     });
 
     volverButton.addEventListener('click', () => {
