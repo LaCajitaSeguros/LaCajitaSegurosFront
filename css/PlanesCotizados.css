@@ -1,6 +1,6 @@
 :root {
     --color-primario: #041B2D;
-
+    --color-secundario: grey;
   }
 
   @font-face {
@@ -21,13 +21,57 @@ body
 
 .main   
 {
+    margin-top: 60px;
     padding: 30px;
 }
 
-.Titulo{
-    margin-top: 20px;
-    margin-left: 140px;
+.BtnVolver
+{
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 16px;
 }
+
+.Titulos
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Titulos__BtnVolver
+{
+    width: 33.33%;
+    text-align: left;
+}
+
+.Titulos__Titulo
+{
+    width: 33.33%;
+    text-align: center;
+
+}
+
+.Titulos__Modelo{
+    width: 33.33%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.Titulos__Modelo__Modelo
+{
+    margin-left: 6px;
+    color: var(--color-secundario);
+}
+
+.Titulos__Titulo__Text
+{
+}
+
 
 .Planes
 {
@@ -104,5 +148,5 @@ body
 {
     font-size: 12px;
     line-height: 20px;
-    color: grey;
+    color: var(--color-secundario);
 }

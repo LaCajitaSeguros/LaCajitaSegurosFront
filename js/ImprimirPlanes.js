@@ -11,7 +11,7 @@ export function ImprimirPlanes(planes) {
                     <h1>$${plan.prima}</h1>
                 </div>
                 <div class="Planes__Plan__Contratar">
-                    <button class="Planes__Plan__Contratar__Btn">Contratar</button>
+                    <button class="Planes__Plan__Contratar__Btn" id=${plan.id}>Contratar</button>
                     <p class="Planes__Plan__Contratar__Descripcion">${plan.descripcion}</p>
                 </div>`
             +
@@ -20,6 +20,8 @@ export function ImprimirPlanes(planes) {
             </div>
         `;
     }
+
+    BtnContratar(planes);
 }
 
 function ImprimirCoberturas(coberturas) {
@@ -34,4 +36,24 @@ function ImprimirCoberturas(coberturas) {
 
     htmlCoberturas += `</div>`
     return htmlCoberturas;
+}
+
+function BtnContratar(planes) {
+    let btns = document.getElementsByClassName("Planes__Plan__Contratar__Btn");
+    for (var i = 0; i < btns.length; i++) {
+        const plan = planes[i];
+
+        btns[i].addEventListener("click", function () {
+            GuardarPlanEnLocalStorage(plan);
+            GoToDatosDeTuPolizaHtml();
+        });
+    }
+}
+
+function GoToDatosDeTuPolizaHtml() {
+    window.location.href = `../../HTML/datosDeTuPoliza.html`;
+}
+
+function GuardarPlanEnLocalStorage(plan) {
+    localStorage.setItem('selectedPlan', JSON.stringify(plan));
 }

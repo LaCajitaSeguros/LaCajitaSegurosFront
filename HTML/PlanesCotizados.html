@@ -5,29 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/Normalize.css">
     <link rel="stylesheet" href="../css/PlanesCotizados.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
     <title>Planes</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="../HTML/index.html" class="logo-ref">
+              <img src="../img/logo1.png" alt="La cajita seguros">
+            </a>      
+        </div>
+                      
+        <div class="right-menu">
+            <a href="../HTML/login.html" class="autogestion">Autogestión</a>
+        </div>
+    </header>
+
     <main class="main">
-        <h1 class="Titulo">¡Elegí tu plan!</h1>
-        <div class="Planes" id="Planes">
-            <!--<div class="Planes__Plan">
-                <div class="Planes__Plan__Precio">
-                    <h3>Plan Basico</h3>
-                    <h1>$32.958</h1>
-                </div>
-                <div class="Planes__Plan__Contratar">
-                    <button class="Planes__Plan__Contratar__Btn">Contratar</button>
-                    <p class="Planes__Plan__Contratar__Descripcion">Es la cobertura básica y obligatoria para que todo automotor pueda circular, protegiendo al titular por los daños que el vehículo pueda ocasionar a terceros.</p>
-                </div>
-                <div class="Planes__Plan__Coberturas">
-                    <h4 class="Planes__Plan__Coberturas__Item">Responsabilidad Civil</h4>
-                    <h4 class="Planes__Plan__Coberturas__Item">Proteccion al conductor</h4>
-                    <h4 class="Planes__Plan__Coberturas__Item">Asistencia al viajero</h4>
-                    <h4 class="Planes__Plan__Coberturas__Item">Monto asegurado actualizado</h4>
-                </div>
+        <div class="Titulos">
+            <!--<div class="Titulos__BtnVolver">
+                <button class="BtnVolver">
+                    <p>Volver</p>
+                </button>
             </div>-->
+            <div class="Titulos__Titulo">
+                <h1 class="Titulos__Titulo__Text">¡Elegí tu plan!</h1>
+            </div>
+            <div class="Titulos__Modelo">
+                <h4 class="Titulos__Modelo__Title">Auto:</h4>
+                <p class="Titulos__Modelo__Modelo" id="Titulos__Modelo__Modelo"></p>
+            </div>
+        </div>
+        <div class="Planes" id="Planes">
             
         </div>
     </main>
