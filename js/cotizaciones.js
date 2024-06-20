@@ -23,8 +23,8 @@ function ocultarSpinner() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const apiMarcaUrl = 'https://localhost:7061/api/Marca';
-    const apiLocalidadUrl = 'https://localhost:7061/api/Localidad';
+    const apiMarcaUrl = 'https://localhost:7062/api/Marca';
+    const apiLocalidadUrl = 'https://localhost:7062/api/Localidad';
 
     // Chequear si hay que deshabilitar o no el botón de cotizar. Si tiene todos los valores se habilita
     function checkDropdowns() {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mostrar modelos según la marca que se seleccionó
     dropdownMarca.addEventListener('change', function () {
         const selectedMarcaId = dropdownMarca.value;
-        const apiModeloUrl = `https://localhost:7061/api/Modelo/${selectedMarcaId}`;
+        const apiModeloUrl = `https://localhost:7062/api/Modelo/${selectedMarcaId}`;
 
         fetch(apiModeloUrl)
             .then(response => response.json())
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Buscar versiones según el modelo
     dropdownModelo.addEventListener('change', function () {
         const selectedModeloId = dropdownModelo.value;
-        const apiVersionUrl = `https://localhost:7061/api/Version/${selectedModeloId}`;
+        const apiVersionUrl = `https://localhost:7062/api/Version/${selectedModeloId}`;
 
         fetch(apiVersionUrl)
             .then(response => response.json())
@@ -278,7 +278,7 @@ function enviarSolicitudPOST() {
         body: JSON.stringify(data)
     };
 
-    fetch('https://localhost:7061/api/Vehiculo', options)
+    fetch('https://localhost:7062/api/Vehiculo', options)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al enviar la solicitud');
