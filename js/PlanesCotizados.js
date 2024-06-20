@@ -3,7 +3,9 @@ import { ImprimirPlanes } from './ImprimirPlanes.js';
 
 
 document.addEventListener("DOMContentLoaded", async function () {
+    MostrarSpinner();
     await LoadPlanesCotizados();
+    OcultarSpinner();
 });
 
 async function LoadPlanesCotizados() {
@@ -29,4 +31,13 @@ function ImprimirModelo(auto) {
 function ConstruirModelo(auto) {
     let modelo = `${auto.marca} ${auto.modelo} ${auto.version}`;
     return modelo;
+}
+
+function MostrarSpinner() {
+    document.getElementById('overlay').style.display = 'block';
+}
+
+// Función para ocultar el spinner
+function OcultarSpinner() {
+    document.getElementById('overlay').style.display = 'none';
 }
