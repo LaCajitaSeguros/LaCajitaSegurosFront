@@ -84,7 +84,7 @@ body
     left: -33px;
     width: 25px; /* Ajusta según sea necesario */
     height: 25px; /* Ajusta según sea necesario */
-    background-image: url('check.svg'); /* Reemplaza con la ruta a tu imagen */
+    background-image: url('/img/check.svg'); /* Reemplaza con la ruta a tu imagen */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
