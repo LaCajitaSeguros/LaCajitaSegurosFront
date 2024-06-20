@@ -287,11 +287,11 @@ function enviarSolicitudPOST() {
         })
         .then(responseData => {
             console.log('Solicitud POST enviada con éxito:', responseData);
-
             const datosAuto = {
                 marca: marcaNombre,
                 modelo: modeloNombre,
-                version: versionNombre
+                version: versionNombre,
+                prima: responseData
             };
 
             const ubicacion = {
@@ -300,7 +300,6 @@ function enviarSolicitudPOST() {
             };
 
             const jsonResponse = {
-                cobertura: responseData,
                 datosAuto: datosAuto,
                 ubicacion: ubicacion
             };
