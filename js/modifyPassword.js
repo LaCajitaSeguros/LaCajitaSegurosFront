@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const backButton = document.getElementById('backButton');
 
     const passwordRequirements = document.getElementById('passwordRequirements');
-
+    var data = localStorage.getItem('userData')
+    var userId = localStorage.getItem('userId')
+    console.log('userData:', data);
+    console.log('userId:', userId);
     passwordInput.addEventListener('input', function () {
         const password = passwordInput.value;
 
@@ -71,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Redirigir a la página de inicio de sesión después de 3 segundos
                     setTimeout(() => {
-                        window.location.href = './login.html';
+                        window.location.href = '../HTML/login.html';
                     }, 3000);
                 } else {
                     responseMessage.textContent = result;
@@ -96,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (backButton) {
         backButton.addEventListener('click', function () {
-            window.location.href = 'generatePassword.html';
+            window.location.href = '../HTML/generatePassword.html';
         });
     }
 });

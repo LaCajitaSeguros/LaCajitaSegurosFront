@@ -72,7 +72,7 @@
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido,Enzo <span id="userEmail"></span>!</h1>
+    <h1>¡Bienvenido,<span id="userName"></span>!</h1>
     <p>Gracias por elegir LA CAJITA SEGUROS. Desde aquí puedes gestionar tus pólizas, realizar pagos, y mucho más.</p>
     <h2>Tus pólizas</h2>
     <ul>
@@ -112,6 +112,23 @@
         LA CAJITA SEGUROS &copy; 2023. Todos los derechos reservados.
     </footer>
     <script>
+        var data = localStorage.getItem('userData');
+        var userId = localStorage.getItem('userId');
+        var token = localStorage.getItem('Token');
+
+        console.log('userData:', data);
+        console.log('userId:', userId);
+        console.log('Token:', token);
+
+        //if (userId) {
+           // document.getElementById('userId').innerText = userId;
+        //}
+
+        var userName = localStorage.getItem('userName');
+        if (userName) {
+            document.getElementById('userName').innerText = userName;
+        }
+
         const userEmail = localStorage.getItem('email');
         if (userEmail) {
             const userEmailElement = document.getElementById('userEmail');

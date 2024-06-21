@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Obtener mensajes de localStorage
     var successMessage = localStorage.getItem('registerSuccess');
     var reminderMessage = localStorage.getItem('confirmEmailReminder');
+    var data = localStorage.getItem('userData')
+    var userId = localStorage.getItem('userId')
+    console.log('userData:', data);
+    console.log('userId:', userId);
     // Mostrar mensajes si existen
     if (successMessage) {
         document.getElementById('successMessage').innerText = successMessage;
@@ -39,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var spinner = document.querySelector('.loading-spinner');
         spinner.style.display = 'block'; 
         setTimeout(function() {
-            window.location.href = 'generatePassword.html'; 
+            window.location.href = '../HTML/generatePassword.html'; 
         }, 500);
     });
 });
@@ -55,6 +59,7 @@ document.getElementById("loginButton").addEventListener("click", function() {
     emailError.style.display = 'none';
     passwordError.style.display = 'none';
     invalidPasswordError.style.display = 'none';
+    overlay.classList.add('show');
     document.getElementById('EmailAddress').classList.remove('error');
     document.getElementById('password').classList.remove('error');
     // Validar campos requeridos
@@ -90,7 +95,12 @@ document.getElementById("loginButton").addEventListener("click", function() {
     .then(data => {
         document.getElementById("loginButton").classList.remove("error-btn");
         document.getElementById("loginButton").classList.add("success-btn");
-        window.location.href = "pagina_de_inicio.html";
+        localStorage.setItem('Token', JSON.stringify(data.token));
+
+        setTimeout(() => {
+            overlay.classList.remove('show');
+            window.location.href = '../HTML/pagina_de_inicio.html';
+        }, 1000);
     })
     .catch(error => {
         console.error('Error:', error);

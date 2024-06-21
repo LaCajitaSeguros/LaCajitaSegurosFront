@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificacion de Mail</title>
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/modify.css">
+
     <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
 </head>
 <body>
@@ -32,12 +34,15 @@
                     <div class="btn btn-primary mb-20" id="loginButton">Enviar</div>
                     <!-- Este volver debe volver a la pagina de planes queda pendiente -->
                     <a class="btn btn-volver" href="../HTML/datosDeTuPoliza.html" id="volver">Volver</a> 
-                    <div class="loading-spinner" style="display: none;"></div>
+                    <div class="loading-spinner" style="display: none;">Cargando...</div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+
+    <!-- Capa gris de fondo -->
+    <div class="overlay" id="overlay"></div>
     <script src="../js/verificarEmail.js"></script>
 </body>
 </html>

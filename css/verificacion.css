@@ -1,0 +1,31 @@
+.derecha div h1,
+.derecha div h2 {
+    margin: 0;
+}
+
+.derecha div h2 {
+    font-size: 1rem;
+    /* Ajustar el tamaño de la fuente según sea necesario */
+    color: #666;
+    /* Ajustar el color del texto según sea necesario */
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+.reminder-message {
+    color: red;
+}
+
+.loading-spinner {
+    display: none;
+}
+
+
+#successMessage {
+    color: green;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

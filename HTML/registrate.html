@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrate</title>
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/modify.css">
+
     <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
 </head>
 <body>
@@ -21,32 +23,46 @@
                     Creá una cuenta en el sitio de autogestión o ingresá y empezá a autogestionarte
                 </h2>
               
-                <input type="text" id="name" placeholder="Nombre" />
-                
-                <input type="text" id="LastName" placeholder="Apellido" />
-                
-                <input type="text" id="Dni" placeholder="Nº DNI" required />
+                <input type="text" id="name" placeholder="Nombre" maxlength="50" />
+                <span id="nameError" class="error-message">Por favor ingresa tu Nombre.</span>
+
+                <input type="text" id="LastName" placeholder="Apellido" maxlength="50" />
+                <span id="apellidoError" class="error-message">Por favor ingresa tu Apellido</span>
+
+                <input type="text" id="Dni" placeholder="Nº DNI" maxlength="10" required />
                 <span id="dniError" class="error-message">Por favor ingresa tu número de DNI.</span>
-                
-                <input type="email" id="EmailAddress" placeholder="Email" required />
+                <div>
+                    <!-- Otros campos de entrada y botones -->
+                    <span id="userIdDisplay"></span>
+                </div>
+                <input type="email" id="EmailAddress" placeholder="Email" maxlength="100" required />
                 <span id="emailEmptyError" class="error-message">Por favor ingresa tu correo electrónico.</span>
                 <span id="emailExistsError" class="error-message">El correo ya está registrado.<br>Será redirigido a la página de inicio de sesión.</span>
 
                 <div class="password-container">
-                    <input type="password" id="password" placeholder="Contraseña" required />
+                    <input type="password" id="password" placeholder="Contraseña" maxlength="20" required />
                     <span class="toggle-password" id="togglePassword">&#128065;</span>
                 </div>                
                 <span id="passwordError" class="error-message">La contraseña debe tener al menos 6 caracteres,<br>1 mayúscula, 1 minúscula, 1 número y 1 símbolo.</span>
 
-                <input type="password" id="passwordConfirm" placeholder="Confirmar Contraseña" />
+                <input type="password" id="passwordConfirm" placeholder="Confirmar Contraseña" maxlength="20" />
                 <span id="passwordMismatchError" class="error-message">Las contraseñas no coinciden.</span>
 
+                <div class="password-requirements" id="passwordRequirements">
+                    La contraseña debe poseer:
+                    <ul>
+                        <li>Al menos 6 caracteres</li>
+                        <li>Al menos una mayúscula</li>
+                        <li>Al menos una minúscula</li>
+                        <li>Al menos un caracter especial [@, -, +, ?]</li>
+                    </ul>
+                </div>                
                 <div class="center">
                     <div class="btn-group">
                         <div id="backButton" class="btn btn-secundary btn-margin mb-20"> Volver</div>
                         <div id="registerButton" class="btn btn-primary btn-margin mb-20">Registrar</div>
                     </div>           
-                    <div class="loading-spinner" id="spinner"></div>
+                    <div class="loading-spinner" style="display: none;">Cargando...</div>
                 </div>
             </div>
         </div>
