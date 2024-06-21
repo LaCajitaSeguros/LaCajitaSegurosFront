@@ -83,7 +83,6 @@ document.getElementById("registerButton").addEventListener("click", function () 
             return response.json();
         })
         .then(data => {
-            enviarSolicitudPOST();
             console.log("Datos", data);
             localStorage.setItem('registerSuccess', 'Registro exitoso. Ahora puedes iniciar sesión.');
             // Guardar el objeto data completo en localStorage
@@ -93,9 +92,7 @@ document.getElementById("registerButton").addEventListener("click", function () 
             // Verificar que el userId se haya guardado correctamente
             console.log('userId:', data.userId);
             console.log('userName:', data.name);
-
-            // Redireccionar a la siguiente página
-            window.location.href = "../HTML/codigoVerificacion.html";
+            enviarSolicitudPOST();
 
         })
         .catch(error => {
@@ -123,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Función para enviar la solicitud POST
-function enviarSolicitudPOST() {
+async function enviarSolicitudPOST() {
     const plan = localStorage.getItem('selectedPlan');
     // Convertir la cadena JSON a un objeto JavaScript
     const planObj = JSON.parse(plan);
@@ -172,18 +169,23 @@ function enviarSolicitudPOST() {
         },
         body: JSON.stringify(data)
     };
+    await registrarPoliza(options);
+}
 
-    fetch('https://localhost:7136/api/Poliza/registrar', options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al enviar la solicitud');
-            }
-            return response.json();
-        })
-        .then(responseData => {
-            console.log('Solicitud POST enviada con éxito:', responseData);
-        })
-        .catch(error => {
-            console.error('Error al enviar la solicitud POST:', error);
-        });
+async function registrarPoliza(options) {
+    try {
+        const response = await fetch('https://localhost:7136/api/Poliza/registrar', options);
+
+        if (!response.ok) {
+            throw new Error('Error al enviar la solicitud');
+        }
+
+        const responseData = await response.json();
+        console.log('Solicitud POST enviada con éxito:', responseData);
+    } catch (error) {
+        console.error('Error al enviar la solicitud POST:', error);
+    }
+
+    // Redireccionar a la siguiente página
+    window.location.href = "../HTML/codigoVerificacion.html";
 }
