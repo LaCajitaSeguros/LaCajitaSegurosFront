@@ -21,7 +21,7 @@ document.getElementById('verifyButton').addEventListener('click', async () => {
 
         if (response.ok) {
             successMessage.textContent = 'Código verificado correctamente. Registro completo.';
-            window.location.href = './login.html';
+            window.location.href = '../HTML/login.html';
         } else {
             reminderMessage.textContent = result.message || 'Error al verificar el código.';
         }
