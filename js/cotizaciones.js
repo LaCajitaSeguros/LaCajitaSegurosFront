@@ -21,7 +21,6 @@ function ocultarSpinner() {
     document.getElementById('overlay').style.display = 'none';
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
     const apiMarcaUrl = 'https://localhost:7062/api/Marca';
     const apiLocalidadUrl = 'https://localhost:7062/api/Localidad';
@@ -69,6 +68,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 option.textContent = item.nombre;
                 dropdownMarca.appendChild(option);
             });
+
+            // Restaurar el valor de marca desde localStorage
+            const savedMarcaId = localStorage.getItem('selectedMarcaId');
+            if (savedMarcaId) {
+                dropdownMarca.value = savedMarcaId;
+                cargarModelos(savedMarcaId); // Cargar modelos asociados a la marca seleccionada
+            }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
@@ -88,11 +94,76 @@ document.addEventListener('DOMContentLoaded', function () {
                 option.textContent = item.nombre;
                 dropdownLocalidad.appendChild(option);
             });
+
+            // Restaurar el valor de localidad desde localStorage
+            const savedLocalidadId = localStorage.getItem('selectedLocalidadId');
+            if (savedLocalidadId) {
+                dropdownLocalidad.value = savedLocalidadId;
+            }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
 
+    // Función para cargar modelos según la marca seleccionada
+    function cargarModelos(marcaId) {
+        const apiModeloUrl = `https://localhost:7062/api/Modelo/${marcaId}`;
+
+        fetch(apiModeloUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar el dropdown de modelos y agregar la opción por defecto
+                dropdownModelo.innerHTML = '<option value="" disabled selected>Buscar modelo</option>';
+                dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id;
+                    option.textContent = item.nombre;
+                    dropdownModelo.appendChild(option);
+                });
+
+                // Restaurar el valor de modelo desde localStorage
+                const savedModeloId = localStorage.getItem('selectedModeloId');
+                if (savedModeloId && localStorage.getItem('selectedMarcaId') == marcaId) {
+                    dropdownModelo.value = savedModeloId;
+                    cargarVersiones(savedModeloId); // Cargar versiones asociadas al modelo seleccionado
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    // Función para cargar versiones según el modelo seleccionado
+    function cargarVersiones(modeloId) {
+        const apiVersionUrl = `https://localhost:7062/api/Version/${modeloId}`;
+
+        fetch(apiVersionUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Limpiar el dropdown de versiones y agregar la opción por defecto
+                dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id;
+                    option.textContent = item.nombre;
+                    dropdownVersion.appendChild(option);
+                });
+
+                // Restaurar el valor de versión desde localStorage
+                const savedVersionId = localStorage.getItem('selectedVersionId');
+                if (savedVersionId && localStorage.getItem('selectedModeloId') == modeloId) {
+                    dropdownVersion.value = savedVersionId;
+                }
+
+                checkDropdowns();
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
 
     // Función para verificar si el usuario tiene al menos 18 años
     function verificarEdad(fecha) {
@@ -128,6 +199,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Agregamos un evento de carga al cargar la página
     window.addEventListener("load", function () {
         establecerValorPredeterminado();
+
+        // Restaurar valores desde localStorage
+        const savedAnio = localStorage.getItem('selectedAnio');
+        const savedFechaNacimiento = localStorage.getItem('fechaNacimiento');
+        const savedTieneGNC = localStorage.getItem('tieneGNC');
+
+        if (savedAnio) {
+            dropdownAnio.value = savedAnio;
+        }
+        if (savedFechaNacimiento) {
+            fechaNacimientoInput.value = savedFechaNacimiento;
+            edadUsuario = verificarEdad(savedFechaNacimiento); // Calcular la edad del usuario
+        }
+        if (savedTieneGNC) {
+            tieneGNCInput.checked = savedTieneGNC === 'true';
+            tieneGNC = savedTieneGNC === 'true';
+        }
+
+        checkDropdowns();
     });
 
     // Agregamos un evento de cambio al checkbox
@@ -139,62 +229,20 @@ document.addEventListener('DOMContentLoaded', function () {
         actualizarLocalStorage(); // Actualiza el almacenamiento local cuando cambia el checkbox
     });
 
-    // Mostrar modelos según la marca que se seleccionó
     dropdownMarca.addEventListener('change', function () {
         const selectedMarcaId = dropdownMarca.value;
-        const apiModeloUrl = `https://localhost:7062/api/Modelo/${selectedMarcaId}`;
-
-        fetch(apiModeloUrl)
-            .then(response => response.json())
-            .then(data => {
-                // Si se cambió de Marca, vuelve a mostrar el texto por defecto
-                dropdownModelo.innerHTML = '<option value="" disabled selected>Buscar modelo</option>';
-
-                // Clear dropdown-version and add default option
-                dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
-
-                // Cargar el dropdown de Marca con toda la información de la request
-                data.forEach(item => {
-                    const option = document.createElement('option');
-                    option.value = item.id;
-                    option.textContent = item.nombre;
-                    dropdownModelo.appendChild(option);
-                });
-
-                // Habilita el botón siguiente si todos los campos tienen un valor
-                checkDropdowns();
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        // Restablecer los dropdowns de modelo y versión
+        dropdownModelo.innerHTML = '<option value="" disabled selected>Buscar modelo</option>';
+        dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+        cargarModelos(selectedMarcaId);
         actualizarLocalStorage();
     });
 
-    // Buscar versiones según el modelo
     dropdownModelo.addEventListener('change', function () {
         const selectedModeloId = dropdownModelo.value;
-        const apiVersionUrl = `https://localhost:7062/api/Version/${selectedModeloId}`;
-
-        fetch(apiVersionUrl)
-            .then(response => response.json())
-            .then(data => {
-                // En caso de que cambie la versión, volver a poner el mensaje por default del dropdown de versión
-                dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
-
-                // Completar el dropdown de versión
-                data.forEach(item => {
-                    const option = document.createElement('option');
-                    option.value = item.id;
-                    option.textContent = item.nombre;
-                    dropdownVersion.appendChild(option);
-                });
-
-                // Chequear si se puede habilitar el botón de siguiente
-                checkDropdowns();
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+        // Restablecer el dropdown de versión
+        dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+        cargarVersiones(selectedModeloId);
         actualizarLocalStorage();
     });
 
@@ -204,9 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     dropdownLocalidad.addEventListener('change', function () {
-        const selectedOption = dropdownLocalidad.options[dropdownLocalidad.selectedIndex];
-        selectedLocalidad = selectedOption.textContent;
-        const selectedLocalidadId = selectedOption.value;
+        const selectedLocalidad = dropdownLocalidad.options[dropdownLocalidad.selectedIndex].text;
+        const selectedLocalidadId = dropdownLocalidad.value;
         localStorage.setItem('selectedLocalidad', selectedLocalidad);
         localStorage.setItem('selectedLocalidadId', selectedLocalidadId);
         actualizarLocalStorage();
@@ -315,3 +362,20 @@ function enviarSolicitudPOST() {
             ocultarSpinner(); // Asegurarse de ocultar el spinner en caso de error
         });
 }
+
+dropdownMarca.addEventListener('change', function () {
+    const selectedMarcaId = dropdownMarca.value;
+    // Restablecer los dropdowns de modelo y versión
+    dropdownModelo.innerHTML = '<option value="" disabled selected>Buscar modelo</option>';
+    dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+    cargarModelos(selectedMarcaId);
+    actualizarLocalStorage();
+});
+
+dropdownModelo.addEventListener('change', function () {
+    const selectedModeloId = dropdownModelo.value;
+    // Restablecer el dropdown de versión
+    dropdownVersion.innerHTML = '<option value="" disabled selected>Buscar versión</option>';
+    cargarVersiones(selectedModeloId);
+    actualizarLocalStorage();
+});
