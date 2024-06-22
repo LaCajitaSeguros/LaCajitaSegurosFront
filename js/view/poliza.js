@@ -23,8 +23,7 @@ const render = async () => {
         siniestro.numeroDePoliza = polizaData.numeroDePoliza;
         siniestro.modelo = polizaData.bienAsegurado.version.nombreVersion;
         siniestrosData.push(siniestro);
-    }); 
-   
+    });
     accordionPoliza.innerHTML += Poliza(polizaData);
   });
 
