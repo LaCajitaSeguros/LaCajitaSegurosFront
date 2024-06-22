@@ -9,8 +9,6 @@ let siniestrosData = [];
 console.log(accordionPoliza);
 
 const render = async () => {
-  LoadEventClickImage();
-  LoadEventClickOutsideImage();
   //Aca deberia de obtener el usuarioID desde el LocalStorage
   const user = localStorage.getItem('userData');
   const userObj = JSON.parse(user);
@@ -28,7 +26,8 @@ const render = async () => {
     });
     accordionPoliza.innerHTML += Poliza(polizaData);
   });
-
+  LoadEventClickImage();
+  LoadEventClickOutsideImage();
   //Aca voy a recorrer el array de siniestros y renderizarlos en el front
   console.log("Siniestros:");
   console.log(siniestrosData);
