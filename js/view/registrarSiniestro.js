@@ -1,27 +1,46 @@
-// Recuperar el array de objetos desde el localStorage
-let polizasArray = JSON.parse(localStorage.getItem('polizasArray'));
-console.log("poliza");
-console.log(polizasArray);
+document.addEventListener('DOMContentLoaded', () => {
+    // Recuperar el array de objetos desde el localStorage
+    let polizasArray = JSON.parse(localStorage.getItem('polizasArray'));
+    console.log("poliza");
+    console.log(polizasArray);
 
-// Crear un fragmento de HTML para los opciones del select
-let optionsHTML = '';
+    // Crear un fragmento de HTML para las opciones del select
+    let optionsHTML = '';
 
-polizasArray.forEach((poliza) => {
-  optionsHTML += `<option value="${poliza.nroDePoliza}">${poliza.versionAuto}</option>`;
+    //polizasArray.forEach((poliza) => {
+    //    optionsHTML += `<option value="${poliza.nroDePoliza}">${poliza.versionAuto}</option>`;
+    //});
+
+    // Agregar las opciones al select
+    document.getElementById('vehicle-select').innerHTML += optionsHTML;
+
+    // Manejar el evento de clic en las tarjetas de incidentes
+    const incidentCards = document.querySelectorAll('.incident-card');
+    incidentCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Remover la clase 'selected' de todos los incident cards
+            incidentCards.forEach(c => c.classList.remove('selected'));
+            // Añadir la clase 'selected' al card clickeado
+            card.classList.add('selected');
+        });
+    });
+
+    // Asignar la función registrarSiniestro al evento submit del formulario
+    document.getElementById('siniestro-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        registrarSiniestro();
+    });
 });
 
-// Agregar las opciones al select
-document.getElementById('vehiculos').innerHTML += optionsHTML;
-
 function registrarSiniestro() {
-    const vehiculoSeleccionado = document.getElementById('vehiculos').value;
-    const tipoSiniestroSeleccionado = document.getElementById('Siniestros').value;
-    const observacion = document.getElementById('Comentario').value;
+    const vehiculoSeleccionado = document.getElementById('vehicle-select').value;
+    const tipoSiniestroSeleccionado = document.querySelector('.incident-card.selected') ? document.querySelector('.incident-card.selected').textContent.trim() : '';
+    const observacion = document.getElementById('additional-details').value;
     const provinciaSeleccionada = document.getElementById('provincia').value;
     const localidadSeleccionada = document.getElementById('Localidad').value;
     const calle = document.getElementById('calle').value;
     const altura = document.getElementById('altura').value;
-    const fecha = document.getElementById('fecha');
+    const fecha = document.getElementById('incident-date').value;
     const imagenInput = document.querySelector('input[type="file"]');
 
     console.log('vehiculoSeleccionado:', vehiculoSeleccionado);
@@ -33,15 +52,15 @@ function registrarSiniestro() {
     console.log('altura:', altura);
     console.log('fecha:', fecha);
     console.log('imagenInput:', imagenInput.files); // Para obtener los archivos seleccionados, si los hay
-    
+
     const user = localStorage.getItem('userData');
     const userObj = JSON.parse(user);
-    //const usuarioId = userObj.userId;  //ahi que descomentarlo he incorporarlo en el usuarioId de la request
-    
+    //const usuarioId = userObj.userId;  // Descomentar y usar si está disponible en el objeto userObj
+
     const data = {
-        usuarioId: 'user3', 
+        usuarioId: 'user3', // Cambiar por `usuarioId` si se obtiene del userObj
         siniestro: {
-            fecha:fecha, 
+            fecha: fecha,
             tiposDeSiniestros: [{ tipoSiniestroId: parseInt(tipoSiniestroSeleccionado) }],
             observacion: observacion,
             ubicacion: {
@@ -51,7 +70,7 @@ function registrarSiniestro() {
                 altura: parseInt(altura)
             },
             imagenes: [],
-            tercerosInvolucrados: [] 
+            tercerosInvolucrados: []
         }
     };
 
@@ -83,7 +102,5 @@ async function enviarSolicitudPOST(options) {
     window.location.href = "../HTML/polizasYSiniestros.html";
 }
 
-
+// Asignar la función registrarSiniestro a window para que sea accesible desde el HTML
 window.registrarSiniestro = registrarSiniestro;
-
-export { registrarSiniestro };
