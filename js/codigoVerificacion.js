@@ -10,7 +10,7 @@ document.getElementById('verifyButton').addEventListener('click', async () => {
     
     const successMessage = document.getElementById('successMessage');
     const reminderMessage = document.getElementById('reminderMessage');
-    const spinner = document.querySelector('.loading-spinner');
+    const spinner = document.querySelector('.spinner');
 
     console.log(verificationCode);
     successMessage.textContent = '';

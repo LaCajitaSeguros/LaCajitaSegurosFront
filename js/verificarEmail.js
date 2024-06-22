@@ -1,7 +1,7 @@
 document.getElementById("loginButton").addEventListener("click", function() {
     var emailAddress = document.getElementById('EmailAddress').value;
     var emailError = document.getElementById('emailError');
-    var spinner = document.querySelector('.loading-spinner');
+    var spinner = document.querySelector('.spinner');
     var overlay = document.getElementById('overlay');
 
     // Mostrar overlay y spinner

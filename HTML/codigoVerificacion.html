@@ -18,20 +18,22 @@
         </div>
         <div class="derecha">
             <div>
-                <h1>Ingresa el codigo de verificacion</h1>
+                <h1>Ingresa el código de verificación</h1>
                 <br>
-                <h2 class="verification-text">Debe ingresar el codigo de verificacion que se le envio a su correo electronico.</h2>
+                <h2 class="verification-text">Debe ingresar el código de verificación que se le envio a su correo electrónico.</h2>
 
                 <!-- Contenedor para el mensaje de éxito -->
                 <div id="successMessage" style="color: green; margin-bottom: 20px;"></div>
                 <div id="reminderMessage" class="reminder-message"></div>
 
-                <input type="text" id="VerificationCode" placeholder="Ingresar Codigo de verificacion" />
+                <input type="text" id="VerificationCode" placeholder="Ingresar Código de verificación" />
                 <span id="codeError" class="error-message">Por favor ingresa tu código de verificación.</span>
 
                 <div class="center">
                     <div class="btn btn-primary mb-20" id="verifyButton">Siguiente</div>
-                    <div class="loading-spinner" style="display: none;"></div>
+                </div>
+                <div class="overlay" id="overlay">
+                    <div class="spinner"></div>
                 </div>
             </div>
         </div>

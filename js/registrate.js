@@ -12,7 +12,7 @@ document.getElementById("registerButton").addEventListener("click", function () 
     var nombreError = document.getElementById('nameError');
     var apellidoError = document.getElementById('apellidoError');
 
-    var spinner = document.querySelector('.loading-spinner');
+    var spinner = document.querySelector('.spinner');
 
     // Mostrar el spinner
     spinner.style.display = 'block';
