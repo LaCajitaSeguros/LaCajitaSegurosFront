@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siniestro</title>
+</head>
+
+<body>
+
+    <h3>Seleccionar vehiculo</h3>
+
+    <select id="vehiculos">
+    </select>
+
+    <h3>¿Que carajos te sucedio ahora amiguito?</h3>
+
+    <select id="Siniestros">
+        <option value="1">Robo</option>
+        <option value="2">Incendio</option>
+        <option value="3">Choque</option>
+        <option value="4">Granizo</option>
+    </select>
+
+    <h3>Contame mas detalles</h3>
+
+    <textarea name="" id="Comentario"></textarea>
+
+    <h3>Donde te sucedio</h3>
+
+    <div>
+        <label for="provincia">Provincia:</label>
+        <select id="provincia">
+            <option value="1">Buenos Aires</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="provincia">Localidad:</label>
+        <select id="Localidad">
+            <option value="1">Moron</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" placeholder="Ingrese calle">
+    </div>
+
+    <div>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" placeholder="Ingrese altura">
+    </div>
+
+    <h3>Cuando te sucedio</h3>
+    <form>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha">
+    </form>
+
+
+    <h1>Cargar Imagen</h1>
+    <form action="/procesar-imagen" method="post" enctype="multipart/form-data">
+        <input type="file" name="imagen" accept="image/*">
+      
+    </form>
+
+    <button onclick="registrarSiniestro()" type="button">registrar siniestro</button>
+
+
+    <script src="/js/view/registrarSiniestro.js" type="module"></script>
+</body>
+
+</html>
