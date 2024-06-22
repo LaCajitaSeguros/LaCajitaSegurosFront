@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añadir evento click para el enlace de "Olvidaste tu contraseña"
     document.getElementById('forgotPasswordLink').addEventListener('click', function(event) {
         event.preventDefault(); 
-        var spinner = document.querySelector('.loading-spinner');
+        var spinner = document.querySelector('.spinner');
         spinner.style.display = 'block'; 
         setTimeout(function() {
             window.location.href = '../HTML/generatePassword.html'; 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("loginButton").addEventListener("click", function() {
     var emailAddress = document.getElementById('EmailAddress').value;
     var password = document.getElementById('password').value;
-    var spinner = document.querySelector('.loading-spinner');
+    var spinner = document.querySelector('.spinner');
     var emailError = document.getElementById('emailError');
     var passwordError = document.getElementById('passwordError');
     var invalidPasswordError = document.getElementById('invalidPasswordError');
