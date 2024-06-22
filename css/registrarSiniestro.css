@@ -1,20 +1,23 @@
 
 .wrapper {
     padding: 20px;
-    /* margin-top: 80px; */
     max-width: 2000px;
     margin:80px auto;
 }
 
-.siniestro-section, .vehicle-section, .incident-type-section,
+.siniestro-section, .vehicle-section,
 .incident-time-section, .additional-details-section,
 .location-section, .upload-section {
     margin-bottom: 40px;
+    color:#041B2D;
 }
-
+.incident-type-section{
+    color:#041B2D;
+}
 .siniestro-section h1{
     font-size: 35px;
-    color: #041B2D;
+    /* color: #041B2D; */
+    color:#17a2b8;
 }
 
 .siniestro-section p{
@@ -31,8 +34,12 @@ select {
     margin-bottom: 20px;
     display: block;
     font-family: "Blinker", sans-serif;
+    margin-top: 5px;
 }
 
+.location-section label{
+    margin-bottom: 5px;
+}
 #additional-details{
     width: 100%;
     max-width: 480px;
@@ -44,19 +51,9 @@ select {
     font-family: "Blinker", sans-serif;
 }
 
-#calle{
-    width: 100%;
-    max-width: 480px;
-    border: 1px solid #c5c5c5;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: block;
-    font-family: "Blinker", sans-serif;
-}
-#altura{
-    width: 100%;
-    max-width: 240px;
+#calle {
+    width: 100%; 
+    max-width: 310px; 
     border: 1px solid #c5c5c5;
     padding: 10px;
     border-radius: 10px;
@@ -65,37 +62,50 @@ select {
     font-family: "Blinker", sans-serif;
 }
 
-
-/* Estilo para las cards de incidentes */
-/* .incident-cards {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px; 
-    padding: 20px; 
+#altura {
+    width: 100%; 
+    max-width: 125px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
 }
 
-.incident-card {
+.calle-altura-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
+    max-width: 700px;
+    margin-bottom: 20px;
 }
 
-.incident-card i {
-    font-size: 2em;
-    margin-bottom: 10px;
-} */
+.input-container {
+    margin-right: 20px;
+    flex: 1;
+}
+
+.input-container label {
+    display: inline-block;
+    width: 60px;
+}
+
+.input-container input {
+    width: 100%; 
+    max-width: 300px; 
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
+}
 
 /* Estilo para las cards de incidentes */
 .incident-cards {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px; 
-    padding: 20px; 
+    padding: 20px 20px 20px 0px; 
 }
 
 .incident-card {
@@ -107,7 +117,8 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    transition: transform 0.3s, background-color 0.3s;
+    color:#041B2D;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .incident-card i {
@@ -115,10 +126,28 @@ select {
     margin-bottom: 10px;
 }
 
+/* icono svg */
+.incident-card .icon {
+    width: 2.5em;
+    height: 2.5em; 
+}
+
+.incident-card .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor; 
+}
+/* */
+
 .incident-card:hover {
     background-color: #e0f7fa;
-    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+.incident-card.selected {
+    background-color: #b3e5fc;
+    border-color: #0288d1;
 }
 
 .incident-card.selected {
@@ -127,28 +156,8 @@ select {
 }
 /*  */
 
-/* Estilo para el botón de subir imagen */
 .upload-section {
     position: relative;
-}
-
-.custom-file-upload {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid #c5c5c5;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.custom-file-upload:hover {
-    background-color: #e0f7fa;
-    transform: scale(1.05);
-}
-
-#incident-image {
-    display: none;
 }
 
 textarea {
@@ -176,4 +185,24 @@ textarea {
 
 #incident-image {
     margin-top: 10px;
+}
+
+.emergency-section, .involved-section {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.question {
+    margin-right: 20px; 
+}
+
+.radio-options {
+    display: flex; 
+    align-items: center; 
+}
+
+.radio-options label {
+    margin-right: 10px; 
+    white-space: nowrap;
 }
