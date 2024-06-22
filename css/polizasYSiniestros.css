@@ -167,6 +167,11 @@ header {
   cursor: pointer;
 }
 
+.imagenes__Siniestro__Container__imageContainer{
+  width: 130px;
+  height: 70px;
+}
+
 .imagenes__Siniestro__Container__img{
   width: 100%;
   height: 100%;
@@ -187,3 +192,28 @@ header {
   background-color: rgba(0, 0, 0, 0.5); /* Color de fondo gris oscuro con transparencia al hacer hover */
 }
 
+.imagenes__Siniestro__Container__img__expandida {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 70%;
+  max-height: 70%;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.imagenes__Siniestro__Container__imageContainer__CloseIcon{
+  position: absolute;
+  top: 10px; /* Ajusta la posición según sea necesario */
+  right: 10px; /* Ajusta la posición según sea necesario */
+  z-index: 1; /* Asegura que el icono esté sobre la imagen */
+}
+
+.imagenes__Siniestro__Container__imageContainer__CloseIcon__expandida {
+  position: absolute;
+  top: 10px; /* Mantén la misma posición que cuando no está expandida */
+  right: 10px; /* Mantén la misma posición que cuando no está expandida */
+  z-index: 3; /* Asegura que el icono esté sobre la imagen expandida */
+}

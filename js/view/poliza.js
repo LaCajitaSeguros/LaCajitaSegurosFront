@@ -9,26 +9,28 @@ let siniestrosData = [];
 console.log(accordionPoliza);
 
 const render = async () => {
+  LoadEventClickImage();
+  LoadEventClickOutsideImage();
   //Aca deberia de obtener el usuarioID desde el LocalStorage
   const user = localStorage.getItem('userData');
   const userObj = JSON.parse(user);
-  const usuarioId = userObj.userId; 
+  const usuarioId = userObj.userId;
   let polizasData = await ApiPolizasYSiniestros.GetPolizasAndSiniestrosByUserId(usuarioId);
 
   polizasData.forEach((polizaData) => {
     console.log("poliza");
     console.log(polizaData);
-    console.log(polizaData.numeroDePoliza); 
-    polizaData.siniestros.forEach(siniestro =>{
-        siniestro.numeroDePoliza = polizaData.numeroDePoliza;
-        siniestro.modelo = polizaData.bienAsegurado.version.nombreVersion;
-        siniestrosData.push(siniestro);
+    console.log(polizaData.numeroDePoliza);
+    polizaData.siniestros.forEach(siniestro => {
+      siniestro.numeroDePoliza = polizaData.numeroDePoliza;
+      siniestro.modelo = polizaData.bienAsegurado.version.nombreVersion;
+      siniestrosData.push(siniestro);
     });
     accordionPoliza.innerHTML += Poliza(polizaData);
   });
 
   //Aca voy a recorrer el array de siniestros y renderizarlos en el front
-  console.log("Siniestros:" );
+  console.log("Siniestros:");
   console.log(siniestrosData);
 
   siniestrosData.forEach((siniestroData) => {
@@ -37,3 +39,33 @@ const render = async () => {
 };
 
 window.onload = render;
+
+function LoadEventClickImage() {
+  let images = document.getElementsByClassName("imagenes__Siniestro__Container__img");
+  for (var i = 0; i < images.length; i++) {
+    const image = images[i]; // Guardamos una referencia al producto actual en esta iteración
+
+    images[i].addEventListener("click", function () {
+      OpenImage(image);
+    });
+
+    // Añadir event listener para clics fuera de la imagen expandida
+    document.addEventListener("click", function () {
+      CloseImage(image);
+    });
+  }
+
+
+}
+
+function OpenImage(image) {
+  image.classList.add('imagenes__Siniestro__Container__img__expandida');
+}
+
+function CloseImage(image) {
+  if (!event.target.closest('.imagenes__Siniestro__Container__img')) {
+    // Iterar nuevamente sobre las imágenes para quitar la clase expandida
+    image.classList.remove('imagenes__Siniestro__Container__img__expandida');
+  }
+}
+
