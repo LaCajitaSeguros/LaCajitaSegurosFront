@@ -1,0 +1,179 @@
+
+.wrapper {
+    padding: 20px;
+    /* margin-top: 80px; */
+    max-width: 2000px;
+    margin:80px auto;
+}
+
+.siniestro-section, .vehicle-section, .incident-type-section,
+.incident-time-section, .additional-details-section,
+.location-section, .upload-section {
+    margin-bottom: 40px;
+}
+
+.siniestro-section h1{
+    font-size: 35px;
+    color: #041B2D;
+}
+
+.siniestro-section p{
+    font-size: 20px;
+    color: #041B2D;
+}
+
+select {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
+}
+
+#additional-details{
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
+}
+
+#calle{
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
+}
+#altura{
+    width: 100%;
+    max-width: 240px;
+    border: 1px solid #c5c5c5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    font-family: "Blinker", sans-serif;
+}
+
+
+/* Estilo para las cards de incidentes */
+/* .incident-cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px; 
+    padding: 20px; 
+}
+
+.incident-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.incident-card i {
+    font-size: 2em;
+    margin-bottom: 10px;
+} */
+
+/* Estilo para las cards de incidentes */
+.incident-cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px; 
+    padding: 20px; 
+}
+
+.incident-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.incident-card i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.incident-card:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.incident-card.selected {
+    background-color: #b3e5fc;
+    border-color: #0288d1;
+}
+/*  */
+
+/* Estilo para el botón de subir imagen */
+.upload-section {
+    position: relative;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #c5c5c5;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.05);
+}
+
+#incident-image {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#incident-location {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#incident-date {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#incident-image {
+    margin-top: 10px;
+}

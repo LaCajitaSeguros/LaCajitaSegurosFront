@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siniestro</title>
+    <title>Registrar Siniestro</title>
+    <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/registrarSiniestro.css">
+    <script src="https://kit.fontawesome.com/f222217ad3.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
 
-    <h3>Seleccionar vehiculo</h3>
+    <header>
+        <div class="logo">
+            <a href="../HTML/index.html" class="logo-ref">
+                <img src="../img/logo1.png" alt="La cajita seguros">
+            </a>      
+        </div>
+                        
+        <div class="right-menu">
+            <a href="../HTML/login.html" class="autogestion">Autogestión</a>
+        </div>
+    </header>
 
-    <select id="vehiculos">
-    </select>
+    <div class="wrapper">
+        <div class="main-content">
+            <section class="siniestro-section">
+                <h1>Informar un siniestro automotor</h1>
+                <p>Aquí podrás informar un siniestro automotor. Luego tu productor o LA CAJITA SEGUROS se pondrá en contacto con vos.</p>
+            </section>
 
-    <h3>¿Que carajos te sucedio ahora amiguito?</h3>
+            <section class="vehicle-section">
+                <h2>¿Con qué vehículo sucedió?</h2>
+                <form>
+                    <select id="vehicle-select" name="vehicle-select">
+                        <option value="" disabled selected>Buscar vehículo</option>
+                    </select>
+                </form>
+            </section>
 
-    <select id="Siniestros">
-        <option value="1">Robo</option>
-        <option value="2">Incendio</option>
-        <option value="3">Choque</option>
-        <option value="4">Granizo</option>
-    </select>
+            <section class="incident-type-section">
+                <h2>¿Qué sucedió?</h2>
+                <div class="incident-cards">
+                    <div class="incident-card">
+                        <i class="fa-solid fa-car-burst"></i>
+                        <p>Accidente de tránsito</p>
+                    </div>
+                    <div class="incident-card">
+                        <i class="fa-solid fa-cloud-bolt"></i>
+                        <p>Granizo</p>
+                    </div>
+                    <div class="incident-card">
+                        <i class="fa-solid fa-fire"></i>
+                        <p>Incendio</p>
+                    </div>
+                    <div class="incident-card">
+                        <i class="fa-solid fa-cloud-showers-heavy"></i>
+                        <p>Inundación</p>
+                    </div>
+                    <div class="incident-card">
+                        <i class="fa-solid fa-mask"></i>
+                        <p>Robo</p>
+                    </div>
+                    <div class="incident-card">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <p>Rotura</p>
+                    </div>
+                </div>
+            </section>
 
-    <h3>Contame mas detalles</h3>
+            <section class="incident-time-section">
+                <h2>¿Cuándo sucedió?</h2>
+                <input type="date" id="incident-date">
+            </section>
 
-    <textarea name="" id="Comentario"></textarea>
+            <section class="additional-details-section">
+                <h2>¿Tienes más detalles?</h2>
+                <textarea id="additional-details" rows="4" placeholder="Escribe aquí..."></textarea>
+            </section>
 
-    <h3>Donde te sucedio</h3>
+            <section class="location-section">
+                <h2>¿Dónde sucedió?</h2>
+                <!-- <input type="text" id="incident-location" placeholder="Dirección"> -->
+                <div>
+                    <label for="provincia">Provincia:</label>
+                    <select id="provincia">
+                        <option value="" disabled selected>Buscar provincia</option>
+                        <option value="1">Buenos Aires</option>
+                    </select>
+                </div>
+            
+                <div>
+                    <label for="provincia">Localidad:</label>
+                    <select id="Localidad">
+                        <option value="" disabled selected>Buscar localidad</option>
+                        <option value="1">Moron</option>
+                    </select>
+                </div>
+            
+                <div>
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" placeholder="Ingrese calle">
+                </div>
+            
+                <div>
+                    <label for="altura">Altura:</label>
+                    <input type="number" id="altura" placeholder="Ingrese altura">
+                </div>
+            
 
-    <div>
-        <label for="provincia">Provincia:</label>
-        <select id="provincia">
-            <option value="1">Buenos Aires</option>
-        </select>
+            </section>
+
+            <!-- <section class="upload-section">
+                <h2>Subir imagen</h2>
+                <input type="file" id="incident-image" accept="image/*">
+            </section> -->
+            <section class="upload-section">
+                <h2>Subir imagen</h2>
+                <label for="incident-image" class="custom-file-upload">Seleccionar imagen</label>
+                <input type="file" id="incident-image" accept="image/*">
+            </section>
+        </div>
     </div>
 
-    <div>
-        <label for="provincia">Localidad:</label>
-        <select id="Localidad">
-            <option value="1">Moron</option>
-        </select>
-    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-item">
+                <p>© 2024 LA CAJITA seguros - Todos los derechos reservados</p>
+            </div>
+            <div class="footer-item">
+                <p>Organismo de control<br><a href="https://www.argentina.gob.ar/ssn">www.argentina.gob.ar/ssn</a></p>
+            </div>
+            <div class="footer-item">
+                <p>Atención al asegurado<br><a href="mailto:cajitaseguros@gmail.com">cajitaseguros@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
 
-    <div>
-        <label for="calle">Calle:</label>
-        <input type="text" id="calle" placeholder="Ingrese calle">
-    </div>
-
-    <div>
-        <label for="altura">Altura:</label>
-        <input type="number" id="altura" placeholder="Ingrese altura">
-    </div>
-
-    <h3>Cuando te sucedio</h3>
-    <form>
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha">
-    </form>
-
-
-    <h1>Cargar Imagen</h1>
-    <form action="/procesar-imagen" method="post" enctype="multipart/form-data">
-        <input type="file" name="imagen" accept="image/*">
-      
-    </form>
-
-    <button onclick="registrarSiniestro()" type="button">registrar siniestro</button>
-
-
-    <script src="/js/view/registrarSiniestro.js" type="module"></script>
 </body>
-
 </html>
