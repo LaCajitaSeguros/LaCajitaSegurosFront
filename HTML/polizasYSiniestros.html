@@ -143,37 +143,46 @@
                     </h2>
                     <div id="collapseDos"  class="accordion-collapse collapse" data-bs-parent="#accordionSiniestro">
                       <div class="accordion-body">
-                        <h5>Información del Siniestro</h5>
-                        <ul>
-                          <li><strong>Fecha:</strong> 2024-06-20T00:00:00</li>
-                          <li><strong>Tipo de Siniestro:</strong>
-                            <ul>
-                              <li>Incendio</li>
-                              <li>Granizo</li>
-                            </ul>
-                          </li>
+                        <h5>Tipo de Siniestro</h5>
+                        <ul class="coberturas__listado">
+                          <li class="coberturas__listado__item">Incendio</li>
+                          <li class="coberturas__listado__item">Granizo</li>
                         </ul>
                       
                         <div class="imagenes">
                           <h5>Imágenes del Siniestro</h5>
+                          <div class="imagenes__Siniestro">
+                            <div class="imagenes__Siniestro__Container">
+                              <img class="imagenes__Siniestro__Container__img" src="/img/autoIncendiado.jpg" alt="">
+                              <div class="overlay"></div> <!-- Nuevo div para el overlay -->
+                            </div>
+                            <div class="imagenes__Siniestro__Container">
+                              <img class="imagenes__Siniestro__Container__img" src="/img/autoInundado.jpg" alt="">
+                              <div class="overlay"></div> <!-- Nuevo div para el overlay -->
+                            </div>
+                          </div>
+                          <!--
                           <ul>
+                            
                             <li><a href="www.imagen4.com" target="_blank">Ver imagen</a></li>
                             <li><a href="www.imagen5.com" target="_blank">Ver imagen</a></li>
                             <li><a href="www.imagen6.com" target="_blank">Ver imagen</a></li>
+                            
                           </ul>
+                          -->
                         </div>
                       
                         <div class="ubicacion">
                           <h5>Ubicación del Siniestro</h5>
-                          <ul>
-                            <li><strong>Provincia:</strong> Buenos Aires</li>
-                            <li><strong>Localidad:</strong> Quilmes</li>
-                            <li><strong>Calle:</strong> calleDelsiniestro</li>
-                            <li><strong>Altura:</strong> 145</li>
+                          <ul class="bien-asegurado__listado">
+                            <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Provincia:</strong> Buenos Aires</li>
+                            <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Localidad:</strong> Quilmes</li>
+                            <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Calle:</strong> calleDelsiniestro</li>
+                            <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Altura:</strong> 145</li>
                           </ul>
                         </div>
                       
-                        <div class="terceros-involucrados">
+                       <!-- <div class="terceros-involucrados">
                           <h5>Terceros Involucrados</h5>
                           <ul>
                             <li>
@@ -201,7 +210,7 @@
                               </ul>
                             </li>
                           </ul>
-                        </div>
+                        </div>-->
                       </div>
 
                     </div>
