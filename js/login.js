@@ -76,6 +76,7 @@ document.getElementById("loginButton").addEventListener("click", function() {
     }
     // Si los campos no son válidos, no continuar
     if (!valid) {
+        overlay.classList.remove('show');
         return;
     }
     spinner.style.display = 'block';
@@ -113,6 +114,7 @@ document.getElementById("loginButton").addEventListener("click", function() {
     .finally(() => {
         setTimeout(function() {
             spinner.style.display = 'none';
-        }, 2000);
+            overlay.classList.remove('show');
+        }, 1000);
     });
 });

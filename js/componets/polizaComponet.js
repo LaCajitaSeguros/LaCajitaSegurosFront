@@ -29,7 +29,7 @@ export default function Poliza(polizaData){
                         <ul class="bien-asegurado__listado">
                           <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Marca:</strong>${polizaData.bienAsegurado.version.marca}</li>
                           <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Modelo:</strong> ${polizaData.bienAsegurado.version.modelo}</li>
-                          <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Versión:</strong> ${polizaData.bienAsegurado.version.version}</li>
+                          <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Versión:</strong> ${polizaData.bienAsegurado.version.nombreVersion}</li>
                           <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Patente:</strong> ${polizaData.bienAsegurado.patente}</li>
                           <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Código de chasis:</strong> ${polizaData.bienAsegurado.codChasis}</li>
                           <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Código de motor:</strong>${polizaData.bienAsegurado.codMotor}</li>
