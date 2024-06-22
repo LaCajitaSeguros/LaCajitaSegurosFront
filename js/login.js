@@ -99,7 +99,7 @@ document.getElementById("loginButton").addEventListener("click", function() {
 
         setTimeout(() => {
             overlay.classList.remove('show');
-            window.location.href = '../HTML/pagina_de_inicio.html';
+            window.location.href = '../HTML/polizasYSiniestros.html';
         }, 1000);
     })
     .catch(error => {
