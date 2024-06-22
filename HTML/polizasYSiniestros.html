@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La cajita seguros</title>
     <link rel="icon" href="../img/icoCajita.ico" type="image/x-icon">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/polizasYSiniestros.css">
-
 </head>
 <body>
     <header>
@@ -18,7 +17,6 @@
               <img src="../img/logo1.png" alt="La cajita seguros">
             </a>      
         </div>
-                      
         <div class="right-menu">
             <a href="../HTML/login.html" class="autogestion">Cerrar sesión</a>
         </div>
@@ -30,7 +28,7 @@
             <h1>¡Bienvenido/a <span id="userName"></span>!</h1>
             <p class="subtitle">Gracias por elegir LA CAJITA SEGUROS. Desde aquí puedes gestionar tus pólizas, realizar pagos, y mucho más.</p>
           </div>
-          
+
           <section class="content-polizas">
             <h2 class="title-polizas">Tus pólizas</h2>
             <div class="poliza-header">
@@ -42,7 +40,7 @@
            </div>
 
             <div class="accordion" id="accordionPoliza">
-        
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -54,11 +52,9 @@
                             <p>Fort focus 1.4s</p>
                           </div>
                         </button>
-                      
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionPoliza">
                       <div class="accordion-body">
-
                         <div class="bien-asegurado">
                           <h5>Bien asegurado</h5>
                           <ul class="bien-asegurado__listado">
@@ -75,38 +71,34 @@
                         <div class="bien-asegurado">
                           <h5>Ubicacion</h5>
                           <ul class="bien-asegurado__listado">
-                            <li class="bien-asegurado__listado__item" ><strong class="bien-asegurado__listado__item__strong">Provincia:</strong> Buenos Aires</li>
+                            <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Provincia:</strong> Buenos Aires</li>
                             <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Localidad:</strong> Quilmes</li>
                             <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Calle:</strong> Calle</li>
                             <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Altura:</strong> 448</li>
                           </ul>
-                        </li>
                         </div>
                         <div class="coberturas">
                           <h5>Coberturas</h5>
                           <ul class="coberturas__listado">
-                            <li class="coberturas__listado__item">Responsabilidad Civil</li>
-                            <li class="coberturas__listado__item">Protección al conductor</li>
-                            <li class="coberturas__listado__item">Asistencia al viajero</li>
-                            <li class="coberturas__listado__item">Monto asegurado actualizado</li>
-                            <li class="coberturas__listado__item">Responsabilidad Civil</li>
-                            <li class="coberturas__listado__item">Protección al conductor</li>
-                            <li class="coberturas__listado__item">Asistencia al viajero</li>
-                            <li class="coberturas__listado__item">Monto asegurado actualizado</li>
-                            <li class="coberturas__listado__item">Monto asegurado actualizado</li>
-                            <li class="coberturas__listado__item">Responsabilidad Civil</li>
-                            <li class="coberturas__listado__item">Protección al conductor</li>
-                            <li class="coberturas__listado__item">Asistencia al viajero</li>
-                            <li class="coberturas__listado__item">Monto asegurado actualizado</li>
+                              <li class="coberturas__listado__item">Responsabilidad Civil</li>
+                              <li class="coberturas__listado__item">Protección al conductor</li>
+                              <li class="coberturas__listado__item">Asistencia al viajero</li>
+                              <li class="coberturas__listado__item">Monto asegurado actualizado</li>
+                              <li class="coberturas__listado__item">Responsabilidad Civil</li>
+                              <li class="coberturas__listado__item">Protección al conductor</li>
+                              <li class="coberturas__listado__item">Asistencia al viajero</li>
+                              <li class="coberturas__listado__item">Monto asegurado actualizado</li>                               
                           </ul>
                         </div>
-
+                        <button class="downloadPDF btn btn-primary">
+                          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                          <i class="far fa-file-pdf"></i> Descargar como PDF
+                      </button>                      
                       </div>
                     </div>
                 </div>
-  
-            </div>
 
+            </div>
           </section>
 
           <section class="content-siniestros">
@@ -114,7 +106,7 @@
               <h2 class="title-siniestros">Tus Siniestros</h2>
               <p>En este sector podés consultar tus siniestros</p>
             </div>
-          
+
             <div class="poliza-header">
               <p>Nro de siniestro</p>
               <p>Nro de póliza</p>
@@ -126,10 +118,10 @@
            </div>
 
             <div class="accordion" id="accordionSiniestro">
-        
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos" aria-expanded="false" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDos" aria-expanded="false" aria-controls="collapseDos">
                           <div class="poliza-header-content">
                             <p>245862</p>
                             <p>125481</p>
@@ -137,41 +129,32 @@
                             <p>24/5/2024</p>
                             <p>Buenos Aires/Florencio Varela</p>
                             <p>Si</p>
-                            <p>Pendiente a revición</p>
+                            <p>Pendiente a revisión</p>
                           </div>
                         </button>
                     </h2>
-                    <div id="collapseDos"  class="accordion-collapse collapse" data-bs-parent="#accordionSiniestro">
+                    <div id="collapseDos" class="accordion-collapse collapse" data-bs-parent="#accordionSiniestro">
                       <div class="accordion-body">
                         <h5>Tipo de Siniestro</h5>
                         <ul class="coberturas__listado">
                           <li class="coberturas__listado__item">Incendio</li>
                           <li class="coberturas__listado__item">Granizo</li>
                         </ul>
-                      
+
                         <div class="imagenes">
                           <h5>Imágenes del Siniestro</h5>
                           <div class="imagenes__Siniestro">
                             <div class="imagenes__Siniestro__Container">
-                              <img class="imagenes__Siniestro__Container__img" src="/img/autoIncendiado.jpg" alt="">
+                              <img class="imagenes__Siniestro__Container__img" src="../img/autoIncendiado.jpg" alt="">
                               <div class="overlay"></div> <!-- Nuevo div para el overlay -->
                             </div>
                             <div class="imagenes__Siniestro__Container">
-                              <img class="imagenes__Siniestro__Container__img" src="/img/autoInundado.jpg" alt="">
+                              <img class="imagenes__Siniestro__Container__img" src="../img/autoInundado.jpg" alt="">
                               <div class="overlay"></div> <!-- Nuevo div para el overlay -->
                             </div>
                           </div>
-                          <!--
-                          <ul>
-                            
-                            <li><a href="www.imagen4.com" target="_blank">Ver imagen</a></li>
-                            <li><a href="www.imagen5.com" target="_blank">Ver imagen</a></li>
-                            <li><a href="www.imagen6.com" target="_blank">Ver imagen</a></li>
-                            
-                          </ul>
-                          -->
                         </div>
-                      
+
                         <div class="ubicacion">
                           <h5>Ubicación del Siniestro</h5>
                           <ul class="bien-asegurado__listado">
@@ -181,47 +164,14 @@
                             <li class="bien-asegurado__listado__item"><strong class="bien-asegurado__listado__item__strong">Altura:</strong> 145</li>
                           </ul>
                         </div>
-                      
-                       <!-- <div class="terceros-involucrados">
-                          <h5>Terceros Involucrados</h5>
-                          <ul>
-                            <li>
-                              <strong>Nombre:</strong> NombreTercero1<br>
-                              <strong>Compañía de Seguro:</strong> SeguroSRL<br>
-                              <strong>Patente:</strong> AEFR48L5<br>
-                              <strong>Ubicación:</strong>
-                              <ul>
-                                <li><strong>Provincia:</strong> Buenos Aires</li>
-                                <li><strong>Localidad:</strong> Morón</li>
-                                <li><strong>Calle:</strong> calleTercero1</li>
-                                <li><strong>Altura:</strong> 587</li>
-                              </ul>
-                            </li>
-                            <li>
-                              <strong>Nombre:</strong> NombreTercero2<br>
-                              <strong>Compañía de Seguro:</strong><br>
-                              <strong>Patente:</strong><br>
-                              <strong>Ubicación:</strong>
-                              <ul>
-                                <li><strong>Provincia:</strong> Buenos Aires</li>
-                                <li><strong>Localidad:</strong> San Justo</li>
-                                <li><strong>Calle:</strong> calleTercero2</li>
-                                <li><strong>Altura:</strong> 587</li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </div>-->
                       </div>
-
                     </div>
                 </div>
-  
+
             </div>
           </section>
         </div>
     </main>
-    
-
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-item">
@@ -237,15 +187,17 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/view/poliza.js" type="module" ></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="/js/view/poliza.js" type="module"></script>
+    <script src="../js/downloadPDF.js"></script>
 
+    <script>
       var userName = localStorage.getItem('userName');  
       if (userName) { 
           document.getElementById('userName').innerText = userName;
       }
 
     </script>
-   
 </body>
 </html>
