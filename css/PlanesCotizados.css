@@ -31,9 +31,11 @@ body
 
 .Titulos
 {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .Titulos__BtnVolver
@@ -50,11 +52,9 @@ body
 {
     width: 33.33%;
     text-align: center;
-
 }
 
 .Titulos__Modelo{
-    margin-top: 60px;
     width: 33.33%;
     text-align: center;
     display: flex;
