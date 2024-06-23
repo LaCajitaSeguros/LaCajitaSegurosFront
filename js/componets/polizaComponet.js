@@ -8,7 +8,7 @@ export default function Poliza(polizaData){
   console.log(polizaData.fechaInicio);
 
   return `
-       <div class="accordion-item">
+       <div class="accordion-item"> 
                   <h2 class="accordion-header">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${polizaData.numeroDePoliza}" aria-expanded="false" aria-controls="collapseOne">
                         <div class="poliza-header-content">

@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Recuperar el array de objetos desde el localStorage
-    let polizasArray = JSON.parse(localStorage.getItem('polizasArray'));
+    let vehiculosDisponibles = JSON.parse(localStorage.getItem('vehiculosDisponibles'));
     console.log("poliza");
-    console.log(polizasArray);
+    console.log(vehiculosDisponibles);
 
     // Crear un fragmento de HTML para las opciones del select
-    let optionsHTML = '';
+    let optionsHTML = '';   
+   
+   
 
-    //polizasArray.forEach((poliza) => {
-    //    optionsHTML += `<option value="${poliza.nroDePoliza}">${poliza.versionAuto}</option>`;
-    //});
-
+    vehiculosDisponibles.forEach((vehiculo) => {
+        let vehiculoInfo =  `${vehiculo.version.marca} - ${vehiculo.version.modelo} - ${vehiculo.version.nombreVersion} - Patente: ${vehiculo.patente}`
+        optionsHTML += `<option value="${vehiculo.numeroDePoliza}">${vehiculoInfo}</option>`;
+    });
     // Agregar las opciones al select
     document.getElementById('vehicle-select').innerHTML += optionsHTML;
 

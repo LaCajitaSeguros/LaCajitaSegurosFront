@@ -6,13 +6,14 @@ let accordionPoliza = document.getElementById("accordionPoliza");
 let accordionSiniestro = document.getElementById("accordionSiniestro");
 
 let siniestrosData = [];
+let vehiculos = [];
 console.log(accordionPoliza);
 
 const render = async () => {
   //Aca deberia de obtener el usuarioID desde el LocalStorage
   const userId = localStorage.getItem('lastUserId');
-  const cleanUserId = userId.replace(/^"|"$/g, '');
-  let polizasData = await ApiPolizasYSiniestros.GetPolizasAndSiniestrosByUserId(cleanUserId);
+  //const cleanUserId = userId.replace(/^"|"$/g, '');
+  let polizasData = await ApiPolizasYSiniestros.GetPolizasAndSiniestrosByUserId("user1");
 
   polizasData.forEach((polizaData) => {
     console.log("poliza");
@@ -24,7 +25,14 @@ const render = async () => {
       siniestrosData.push(siniestro);
     });
     accordionPoliza.innerHTML += Poliza(polizaData);
+    const vehiculosSeleccionado ={
+      numeroDePoliza : polizaData.numeroDePoliza,
+      version : polizaData.bienAsegurado.version,
+      patente : polizaData.bienAsegurado.patente,
+    };
+    vehiculos.push(vehiculosSeleccionado);
   });
+  localStorage.setItem('vehiculosDisponibles', JSON.stringify(vehiculos));
   LoadEventClickImage();
   LoadEventClickOutsideImage();
   //Aca voy a recorrer el array de siniestros y renderizarlos en el front
