@@ -13,7 +13,7 @@ export default function Siniestro(siniestroData){
                             <p>${siniestroData.modelo}</p>
                             <p>${fecha}</p>
                             <p>${siniestroData.ubicacion.provincia}/${siniestroData.ubicacion.localidad}</p>
-                            <p>${[siniestroData.tercerosInvolucrados.length > 0 ? 'Sí' : 'No']}</p>
+                            <p>${siniestroData.tieneTercerosInvolucrados ? 'Sí' : 'No'}</p>
                             <p>Pendiente a revición</p>
                           </div>
                         </button>
@@ -44,26 +44,6 @@ export default function Siniestro(siniestroData){
                             <li><strong>Localidad:</strong> ${siniestroData.ubicacion.localidad}</li>
                             <li><strong>Calle:</strong> ${siniestroData.ubicacion.calle}</li>
                             <li><strong>Altura:</strong> ${siniestroData.ubicacion.altura}</li>
-                          </ul>
-                        </div>
-                      
-                        <div class="terceros-involucrados">
-                          <h5>Terceros Involucrados</h5>
-                          <ul>
-                          ${siniestroData.tercerosInvolucrados.map(tercero => `
-                            <li>
-                              <strong>Nombre:</strong> ${tercero.nombre}<br>
-                              <strong>Compañía de Seguro:</strong> ${tercero.companiaDeSeguro}<br>
-                              <strong>Patente:</strong> ${tercero.patente}<br>
-                              <strong>Ubicación:</strong>
-                              <ul>
-                                <li><strong>Provincia:</strong> ${tercero.ubicacion.provincia}</li>
-                                <li><strong>Localidad:</strong> ${tercero.ubicacion.localidad}</li>
-                                <li><strong>Calle:</strong> ${tercero.ubicacion.calle}</li>
-                                <li><strong>Altura:</strong> ${tercero.ubicacion.altura}</li>
-                              </ul>
-                            </li>
-                          `).join('')}
                           </ul>
                         </div>
                       </div>
