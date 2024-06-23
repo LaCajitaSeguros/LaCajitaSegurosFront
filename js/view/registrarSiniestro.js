@@ -58,7 +58,7 @@ function registrarSiniestro() {
 
     const user = localStorage.getItem('userData');
     const usuarioId = JSON.parse(user);
-   // const usuarioId = "user1"; // suponiendo que este valor ya está disponible
+    //const usuarioId = "user2"; // suponiendo que este valor ya está disponible
     const nroDePoliza = document.getElementById("vehicle-select").value;
     const fecha = document.getElementById("incident-date").value;
     const tiposDeSiniestros = [];

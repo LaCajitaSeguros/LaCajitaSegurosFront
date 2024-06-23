@@ -85,7 +85,10 @@ header {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  font-weight: bold; 
+  font-weight: bold;
+  border: 1px solid #ccc; /* Borde del mensaje */
+  border-radius: 8px 8px 0 0;
+  background-color: #c6f1f8;
 }
 
 .poliza-header-content {
@@ -246,3 +249,17 @@ header {
   right: 10px; /* Mantén la misma posición que cuando no está expandida */
   z-index: 3; /* Asegura que el icono esté sobre la imagen expandida */
 }
+
+.no-siniestros {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #555; /* Color de texto gris oscuro */
+  background-color: #f0f0f0; /* Color de fondo gris claro */
+  padding: 20px; /* Espaciado interno */
+}
+
+.accordion-item{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+

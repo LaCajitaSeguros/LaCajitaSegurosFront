@@ -4,6 +4,7 @@ import Poliza from "../componets/polizaComponet.js";
 
 let accordionPoliza = document.getElementById("accordionPoliza");
 let accordionSiniestro = document.getElementById("accordionSiniestro");
+let mostrarTitulo = document.querySelector(".mostrar-titulo");
 
 let siniestrosData = [];
 let vehiculos = [];
@@ -44,11 +45,18 @@ const render = async () => {
   console.log("Siniestros:");
   console.log(siniestrosData);
 
-  siniestrosData.forEach((siniestroData) => {
-    accordionSiniestro.innerHTML += Siniestro(siniestroData);
-  });
-  LoadEventClickImage();
-  DownloadPdf();
+  
+  if(siniestrosData.length === 0){
+    mostrarTitulo.style.display="none";
+    accordionSiniestro.innerHTML = '<p class="accordion-item no-siniestros">No hay siniestros registrados.</p>';
+  } else{
+    mostrarTitulo.style.display="flex";
+    siniestrosData.forEach((siniestroData) => {
+      accordionSiniestro.innerHTML += Siniestro(siniestroData);
+    });
+    LoadEventClickImage();
+    DownloadPdf();
+  }
 };
 
 window.onload = render;
