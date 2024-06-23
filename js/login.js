@@ -97,6 +97,7 @@ document.getElementById("loginButton").addEventListener("click", function() {
         document.getElementById("loginButton").classList.remove("error-btn");
         document.getElementById("loginButton").classList.add("success-btn");
         localStorage.setItem('Token', JSON.stringify(data.token));
+        localStorage.setItem('lastUserId', JSON.stringify(data.userId));
 
         setTimeout(() => {
             overlay.classList.remove('show');

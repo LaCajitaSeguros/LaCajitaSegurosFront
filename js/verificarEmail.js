@@ -31,12 +31,13 @@ document.getElementById("loginButton").addEventListener("click", function() {
     .then(response => response.json())
     .then(data => {
         if (data.exists) {
+            const userId = data.userId;
             emailError.style.display = 'block';
             document.getElementById('EmailAddress').classList.add('errorEmail');
             emailError.textContent = 'El correo ya está registrado.';
             // Redirigir a login.html después de 2 segundos
             setTimeout(() => {
-                enviarSolicitudPOST();
+                enviarSolicitudPOST(userId);
             }, 2000);
         } else {
             document.getElementById('successMessage').textContent = 'El correo no está registrado.';
@@ -60,16 +61,14 @@ document.getElementById("loginButton").addEventListener("click", function() {
 
 
 // Función para enviar la solicitud POST
-async function enviarSolicitudPOST() {
+async function enviarSolicitudPOST(userId) {
     const plan = localStorage.getItem('selectedPlan');
     // Convertir la cadena JSON a un objeto JavaScript
     const planObj = JSON.parse(plan);
     // Acceder al valor de 'id'
     const planId = planObj.id;
 
-    const user = localStorage.getItem('userData');
-    const userObj = JSON.parse(user);
-    const usuarioId = '03a0f663-88ff-4fe6-a6bf-5f53aa871e97'; //hay que volver a poner para que use la variable cuando tengamos el endpoint que te devuelve el
+    const usuarioId = userId;
     const prima = planObj.prima;
     const patente = localStorage.getItem('patente');
     const codChasis = localStorage.getItem('codChasis');
