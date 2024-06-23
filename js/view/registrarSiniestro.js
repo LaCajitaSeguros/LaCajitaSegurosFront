@@ -139,6 +139,7 @@ async function enviarSolicitudPOST(options) {
             title: '¡Siniestro registrado con éxito!',
             showConfirmButton: true,
             confirmButtonText: 'Continuar',
+            confirmButtonColor:'#041B2D',
             allowOutsideClick: false,
         }).then((result) => {
             if (result.isConfirmed) {
