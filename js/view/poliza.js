@@ -80,7 +80,7 @@ function CloseImage(image) {
 function DownloadPdf() {
   document.querySelectorAll('.downloadPDF').forEach(button => {
     button.addEventListener('click', (event) => {
-      const accordionBody = event.target.closest('.content-polizas');
+      const accordionBody = event.target.closest('.accordion-item');
 
       // Ocultar el botón de descarga temporalmente antes de capturar el contenido
       button.style.display = 'none';
