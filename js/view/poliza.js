@@ -9,6 +9,13 @@ let siniestrosData = [];
 let vehiculos = [];
 console.log(accordionPoliza);
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('button-registrarSiniestro').addEventListener('click', function() {
+      window.location.href = 'registrarSiniestro.html';
+  });
+});
+
 const render = async () => {
   //Aca deberia de obtener el usuarioID desde el LocalStorage
   const userId = localStorage.getItem('lastUserId');

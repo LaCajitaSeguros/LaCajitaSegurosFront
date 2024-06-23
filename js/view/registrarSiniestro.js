@@ -54,12 +54,11 @@ fetch(apiLocalidadUrl)
     });
 
 
-
 function registrarSiniestro() {
 
-    //const user = localStorage.getItem('userData');
-    //const usuarioId = JSON.parse(user);
-    const usuarioId = "user1"; // suponiendo que este valor ya está disponible
+    const user = localStorage.getItem('userData');
+    const usuarioId = JSON.parse(user);
+    //const usuarioId = "user1"; // suponiendo que este valor ya está disponible
     const nroDePoliza = document.getElementById("vehicle-select").value;
     const fecha = document.getElementById("incident-date").value;
     const tiposDeSiniestros = [];
@@ -94,10 +93,6 @@ function registrarSiniestro() {
     console.log(altura); // Output: "145"
     console.log(imagenes[0]); // Output: [{ urlImagen: "https://example.com/image1.jpg" }]
     console.log(tieneTercerosInvolucrados); // Output: false
-
-
-   
-    //const usuarioId = userObj.userId;  // Descomentar y usar si está disponible en el objeto userObj
 
     const siniestro = {
         fecha,
