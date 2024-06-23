@@ -36,7 +36,7 @@ document.getElementById('verifyButton').addEventListener('click', async () => {
             setTimeout(() => {
                 overlay.classList.remove('show');
                 window.location.href = '../HTML/login.html';
-            }, 2000); 
+            }, 1000); 
         } else {
             reminderMessage.textContent = result.message || 'Error al verificar el código.';
             setTimeout(() => {

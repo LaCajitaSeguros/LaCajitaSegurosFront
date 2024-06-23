@@ -56,7 +56,7 @@ fetch(apiLocalidadUrl)
 
 function registrarSiniestro() {
 
-    const user = localStorage.getItem('userData');
+    const user = localStorage.getItem('lastUserId');
     const usuarioId = JSON.parse(user);
     //const usuarioId = "user2"; // suponiendo que este valor ya está disponible
     const nroDePoliza = document.getElementById("vehicle-select").value;
