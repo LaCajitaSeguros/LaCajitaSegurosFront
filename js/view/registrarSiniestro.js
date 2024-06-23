@@ -58,7 +58,7 @@ function registrarSiniestro() {
 
     const user = localStorage.getItem('userData');
     const usuarioId = JSON.parse(user);
-    //const usuarioId = "user1"; // suponiendo que este valor ya está disponible
+   // const usuarioId = "user1"; // suponiendo que este valor ya está disponible
     const nroDePoliza = document.getElementById("vehicle-select").value;
     const fecha = document.getElementById("incident-date").value;
     const tiposDeSiniestros = [];
@@ -134,12 +134,28 @@ async function enviarSolicitudPOST(options) {
         }
         const responseData = await response.json();
         console.log('Solicitud POST enviada con éxito:', responseData);
+        Swal.fire({
+            icon: 'success',
+            title: '¡Siniestro registrado con éxito!',
+            showConfirmButton: true,
+            confirmButtonText: 'Continuar',
+            allowOutsideClick: false,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireccionar a la siguiente página
+                window.location.href = "../HTML/polizasYSiniestros.html";
+            }
+        });
+        
     } catch (error) {
         console.error('Error al enviar la solicitud POST:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error al registrar el siniestro. Por favor, intenta nuevamente.'
+        });
     }
-
-    // Redireccionar a la siguiente página
-    window.location.href = "../HTML/polizasYSiniestros.html";
+   
 }
 
 // Asignar la función registrarSiniestro a window para que sea accesible desde el HTML
