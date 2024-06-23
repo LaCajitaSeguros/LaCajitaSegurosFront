@@ -54,46 +54,69 @@ fetch(apiLocalidadUrl)
     });
 
 
+
 function registrarSiniestro() {
-    const vehiculoSeleccionado = document.getElementById('vehicle-select').value;
-    const tipoSiniestroSeleccionado = document.querySelector('.incident-card.selected') ? document.querySelector('.incident-card.selected').textContent.trim() : '';
-    const observacion = document.getElementById('additional-details').value;
-    const provinciaSeleccionada = document.getElementById('provincia').value;
-    const localidadSeleccionada = document.getElementById('Localidad').value;
-    const calle = document.getElementById('calle').value;
-    const altura = document.getElementById('altura').value;
-    const fecha = document.getElementById('incident-date').value;
-    const imagenInput = document.querySelector('input[type="file"]');
 
-    console.log('vehiculoSeleccionado:', vehiculoSeleccionado);
-    console.log('tipoSiniestroSeleccionado:', tipoSiniestroSeleccionado);
-    console.log('observacion:', observacion);
-    console.log('provinciaSeleccionada:', provinciaSeleccionada);
-    console.log('localidadSeleccionada:', localidadSeleccionada);
-    console.log('calle:', calle);
-    console.log('altura:', altura);
-    console.log('fecha:', fecha);
-    console.log('imagenInput:', imagenInput.files); // Para obtener los archivos seleccionados, si los hay
+    //const user = localStorage.getItem('userData');
+    //const usuarioId = JSON.parse(user);
+    const usuarioId = "user1"; // suponiendo que este valor ya está disponible
+    const nroDePoliza = document.getElementById("vehicle-select").value;
+    const fecha = document.getElementById("incident-date").value;
+    const tiposDeSiniestros = [];
+    const incidentCards = document.querySelectorAll(".incident-card");
+    incidentCards.forEach((card) => {
+        if (card.classList.contains("selected")) {
+            tiposDeSiniestros.push({ tipoSiniestroId: parseInt(card.id) });
+        }
+    });
+    const observacion = document.getElementById("additional-details").value;
+    const provinciaId = document.getElementById("provincia").value;
+    const localidadId = document.getElementById("dropdown-localidad").value;
+    const calle = document.getElementById("calle").value;
+    const altura = document.getElementById("altura").value;
+    const tieneTercerosInvolucrados = document.querySelector('input[name="emergency"][value="si"]').checked;
+    
+    const imagenes = [];
+    const imageInput = document.getElementById("incident-image");
+    if (imageInput.files.length > 0) {
+      imagenes.push({ urlImagen: imageInput.files[0].name });
+    }
 
-    const user = localStorage.getItem('userData');
-    const userObj = JSON.parse(user);
+    console.log(usuarioId); // Output: "user1"
+    console.log(nroDePoliza); // Output: "635729274"
+    console.log(fecha); // Output: "2024-06-20"
+    console.log(tiposDeSiniestros); // Output: [{ tipoSiniestroId: 1 }, { tipoSiniestroId: 2 }, { tipoSiniestroId: 4 }]
+    console.log(incidentCards); // Output: NodeList(6) [div.incident-card, div.incident-card, div.incident-card, div.incident-card, div.incident-card, div.incident-card]
+    console.log(observacion); // Output: "Esto es una observacion"
+    console.log(provinciaId); // Output: "1"
+    console.log(localidadId); // Output: "6"
+    console.log(calle); // Output: "calleDelsiniestroNuevo"
+    console.log(altura); // Output: "145"
+    console.log(imagenes[0]); // Output: [{ urlImagen: "https://example.com/image1.jpg" }]
+    console.log(tieneTercerosInvolucrados); // Output: false
+
+
+   
     //const usuarioId = userObj.userId;  // Descomentar y usar si está disponible en el objeto userObj
 
+    const siniestro = {
+        fecha,
+        tiposDeSiniestros,
+        observacion,
+        ubicacion: {
+            provinciaId,
+            localidadId,
+            calle,
+            altura,
+        },
+        imagenes,
+        tieneTercerosInvolucrados,
+    };
+
     const data = {
-        usuarioId: 'user3', // Cambiar por `usuarioId` si se obtiene del userObj
-        siniestro: {
-            fecha: fecha,
-            tiposDeSiniestros: [{ tipoSiniestroId: parseInt(tipoSiniestroSeleccionado) }],
-            observacion: observacion,
-            ubicacion: {
-                provinciaId: parseInt(provinciaSeleccionada),
-                localidadId: parseInt(localidadSeleccionada),
-                calle: calle,
-                altura: parseInt(altura)
-            },
-            imagenes: [],
-            tercerosInvolucrados: []
-        }
+        usuarioId,
+        nroDePoliza,
+        siniestro,
     };
 
     const options = {
