@@ -25,6 +25,9 @@ export default function Siniestro(siniestroData) {
                            ${siniestroData.tipoDeSiniestros.map(tipo => `<li class="coberturas__listado__item">${tipo.nombre}</li>`).join('')}
                         </ul>
 
+                        <h5>Detalle</h5>
+                        <p>${siniestroData.observacion}</p>
+
                         <div class="imagenes">
                           <h5>Imágenes del Siniestro</h5>
                           <div class="imagenes__Siniestro">
