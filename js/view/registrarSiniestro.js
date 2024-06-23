@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("poliza");
     console.log(vehiculosDisponibles);
 
-    // Crear un fragmento de HTML para las opciones del select
     let optionsHTML = '';   
-   
-   
 
     vehiculosDisponibles.forEach((vehiculo) => {
         let vehiculoInfo =  `${vehiculo.version.marca} - ${vehiculo.version.modelo} - ${vehiculo.version.nombreVersion} - Patente: ${vehiculo.patente}`
@@ -20,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const incidentCards = document.querySelectorAll('.incident-card');
     incidentCards.forEach(card => {
         card.addEventListener('click', () => {
-            // Remover la clase 'selected' de todos los incident cards
             incidentCards.forEach(c => c.classList.remove('selected'));
-            // Añadir la clase 'selected' al card clickeado
             card.classList.add('selected');
         });
     });
@@ -33,6 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
         registrarSiniestro();
     });
 });
+
+//Logica para listar las localidades
+const dropdownLocalidad = document.getElementById('dropdown-localidad');
+const apiLocalidadUrl = 'https://localhost:7062/api/Localidad';
+
+
+// Request de localidad
+fetch(apiLocalidadUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Ordenar alfabéticamente las localidades
+        data.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+        // Iterar sobre las localidades ordenadas
+        data.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.localidadId;
+            option.textContent = item.nombre;
+            dropdownLocalidad.appendChild(option);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+
 
 function registrarSiniestro() {
     const vehiculoSeleccionado = document.getElementById('vehicle-select').value;
