@@ -193,8 +193,9 @@
     <script src="../js/downloadPDF.js"></script>
 
     <script>
-      var userName = localStorage.getItem('userName');  
+      var userName = localStorage.getItem('lastUserName');  
       if (userName) { 
+          userName = userName.replace(/^"|"$/g, '');
           document.getElementById('userName').innerText = userName;
       }
 
