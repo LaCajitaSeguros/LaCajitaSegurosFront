@@ -55,7 +55,10 @@ export default function Poliza(polizaData){
                           }).join('')}
                         </ul>
                       </div>
-
+                <button class="downloadPDF btn btn-primary">
+               <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+               <i class="far fa-file-pdf"></i> Descargar como PDF
+             </button>
                     </div>
                   </div>
               </div>
