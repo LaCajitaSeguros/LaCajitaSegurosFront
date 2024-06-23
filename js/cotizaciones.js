@@ -22,8 +22,8 @@ function ocultarSpinner() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const apiMarcaUrl = 'https://localhost:7062/api/Marca';
-    const apiLocalidadUrl = 'https://localhost:7062/api/Localidad';
+    const apiMarcaUrl = 'https://localhost:7061/api/Marca';
+    const apiLocalidadUrl = 'https://localhost:7061/api/Localidad';
 
     // Chequear si hay que deshabilitar o no el botón de cotizar. Si tiene todos los valores se habilita
     function checkDropdowns() {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para cargar modelos según la marca seleccionada
     function cargarModelos(marcaId) {
-        const apiModeloUrl = `https://localhost:7062/api/Modelo/${marcaId}`;
+        const apiModeloUrl = `https://localhost:7061/api/Modelo/${marcaId}`;
 
         fetch(apiModeloUrl)
             .then(response => response.json())
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para cargar versiones según el modelo seleccionado
     function cargarVersiones(modeloId) {
-        const apiVersionUrl = `https://localhost:7062/api/Version/${modeloId}`;
+        const apiVersionUrl = `https://localhost:7061/api/Version/${modeloId}`;
 
         fetch(apiVersionUrl)
             .then(response => response.json())
@@ -325,7 +325,7 @@ function enviarSolicitudPOST() {
         body: JSON.stringify(data)
     };
 
-    fetch('https://localhost:7062/api/Vehiculo', options)
+    fetch('https://localhost:7061/api/Vehiculo', options)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al enviar la solicitud');

@@ -12,8 +12,8 @@ console.log(accordionPoliza);
 const render = async () => {
   //Aca deberia de obtener el usuarioID desde el LocalStorage
   const userId = localStorage.getItem('lastUserId');
-  //const cleanUserId = userId.replace(/^"|"$/g, '');
-  let polizasData = await ApiPolizasYSiniestros.GetPolizasAndSiniestrosByUserId("user1");
+  const cleanUserId = userId.replace(/^"|"$/g, '');
+  let polizasData = await ApiPolizasYSiniestros.GetPolizasAndSiniestrosByUserId(cleanUserId);
 
   polizasData.forEach((polizaData) => {
     console.log("poliza");

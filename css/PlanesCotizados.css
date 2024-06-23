@@ -28,12 +28,26 @@ body
     padding: 30px;
 }
 
-.BtnVolver
+.Volver
 {
-    text-align: center;
-    border-radius: 30px;
-    padding: 15px 40px;
-    font-size: 16px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 18px;
+    margin-left: 20px;
+}
+
+.Volver::after
+{
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -23px;
+    width: 22px; /* Ajusta según sea necesario */
+    height: 22px; /* Ajusta según sea necesario */
+    background-image: url('/img/back.svg'); /* Reemplaza con la ruta a tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+
 }
 
 .Titulos
@@ -73,6 +87,7 @@ body
 
 .Titulos__Titulo__Text
 {
+    color: #17a2b8;;
 }
 
 
