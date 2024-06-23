@@ -33,7 +33,6 @@ const render = async () => {
     vehiculos.push(vehiculosSeleccionado);
   });
   localStorage.setItem('vehiculosDisponibles', JSON.stringify(vehiculos));
-  LoadEventClickImage();
   //Aca voy a recorrer el array de siniestros y renderizarlos en el front
   console.log("Siniestros:");
   console.log(siniestrosData);
@@ -41,7 +40,7 @@ const render = async () => {
   siniestrosData.forEach((siniestroData) => {
     accordionSiniestro.innerHTML += Siniestro(siniestroData);
   });
-  //LoadEventClickOutsideImage();
+  LoadEventClickImage();
   DownloadPdf();
 };
 
