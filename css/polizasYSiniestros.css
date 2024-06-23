@@ -151,10 +151,10 @@ header {
 
 }
 
-.imagenes__Siniestro__Container
+/* .imagenes__Siniestro__Container
 {
 
-}
+} */
 
 
 
@@ -216,21 +216,4 @@ header {
   top: 10px; /* Mantén la misma posición que cuando no está expandida */
   right: 10px; /* Mantén la misma posición que cuando no está expandida */
   z-index: 3; /* Asegura que el icono esté sobre la imagen expandida */
-}
-
-
-.downloadPDF {
-  position: relative;
-}
-
-
-.spinner-border {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  vertical-align: text-bottom;
-}
-
-.downloadPDF:hover {
-  background-color: #6c757d; /* Color gris oscuro */
 }
