@@ -14,7 +14,7 @@ export default function Siniestro(siniestroData) {
                             <p>${fecha}</p>
                             <p>${siniestroData.ubicacion.provincia}/${siniestroData.ubicacion.localidad}</p>
                             <p>${siniestroData.tieneTercerosInvolucrados ? 'Sí' : 'No'}</p>
-                            <p>Pendiente a revición</p>
+                            <p>Pendiente a revisión</p>
                           </div>
                         </button>
                     </h2>
